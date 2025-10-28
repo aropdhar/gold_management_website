@@ -66,7 +66,7 @@ const Footer = () => {
              </div>
           </div>
           <div className='flex items-center justify-center'>
-            <h1 className='flex items-center gap-x-2 font-Poppins text-4 leading-6 mb-6 text-[#FFFFFF]'><FaRegCopyright />Copyright Rimel 2022. All right reserved</h1>
+            <h1 className='flex items-center gap-x-2 font-Poppins text-4 leading-6 mb-6 text-[#FFFFFF]'><FaRegCopyright />Copyright Arop Dhar 2025. All right reserved</h1>
           </div>
       </div>
     </div>
