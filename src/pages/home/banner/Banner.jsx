@@ -15,20 +15,26 @@ const Banner = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    arrows: true
+    arrows: false
   };
 
   const banner = [
     {
       id:1,
+      title: "Timeless Gold, Crafted with Elegance.",
+      subtitle: "Handcrafted jewellery that defines grace and sophistication.",
       image: banner1,
     },
     {
       id:2,
+      title: "Royal Touch for Every Celebration.",
+      subtitle: "Shine with the purity and elegance of authentic gold craftsmanship.",
       image: banner2,
     },
     {
       id:3,
+      title: "Golden Bride, Where Dreams Unite.",
+      subtitle: "Adorn yourself with the splendour of heritage jewellery.",
       image: banner3,
     },
 
@@ -36,18 +42,27 @@ const Banner = () => {
 
 
   return (
-    <div className="w-full mx-auto">
-      <Slider {...settings}>
-        {banner.map((item , index) => (
-          <div key={item.id} className="w-full h-[600px] md:h-[500px] sm:h-[300px] overflow-hidden">
-            <img 
-              className="w-full h-full object-cover" 
-              src={item.image} 
-              alt={`banner-${item.id}`} 
-            />
+    <div className='pt-24 pb-24 dark:from-gray-800 dark:to-gray-900  bg-linear-to-r from-yellow-50 to-blue-200'>
+      <div className='container'>
+            <Slider {...settings}>
+              {banner.map((item) => (
+                <div key={item.id}>
+                  <div className='flex items-center justify-between'>
+                      <div className='flex flex-col'>
+                        <h1 className="text-[18px] font-bold bg-linear-to-r from-yellow-500 to-amber-700 bg-clip-text text-transparent">{item.title}</h1>
+                        <p className='text-gray-600 text-[35px] font-light  mt-4 w-[460px] leading-10'>{item.subtitle}</p>
+                        <div>
+                            <button className='mt-6 cursor-pointer bg-yellow-500 hover:bg-yellow-600 transition-all duration-300 text-white font-medium px-6 py-3 rounded-full shadow-md hover:shadow-lg'>Shop Now</button>
+                        </div>
+                      </div>
+                      <div key={item.id} className='w-[500px] h-[500px] overflow-hidden'>
+                        <img className='w-full h-full object-contain' src={item.image}  alt={`banner-${item.id}`} />
+                      </div>
+                  </div>
+                </div>
+              ))}
+            </Slider>
           </div>
-        ))}
-      </Slider>
     </div>
   )
 }

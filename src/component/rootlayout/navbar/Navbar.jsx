@@ -3,11 +3,28 @@ import { Link, NavLink } from 'react-router-dom'
 import { IoIosArrowUp, IoIosHeart } from 'react-icons/io';
 import { FaCartShopping, FaRegMoon } from 'react-icons/fa6';
 import logo from '../../../assets/logo_1.png'
+import { IoSunnyOutline } from "react-icons/io5";
+import { useTheme } from 'next-themes'
 
 const Navbar = ({scrolled}) => {
+
+  // const [darkMode, setDarkMode] = useState(false);
+
+  // useEffect(() => {
+  //   if (darkMode) {
+  //     document.documentElement.classList.add('dark');
+  //   } else {
+  //     document.documentElement.classList.remove('dark');
+  //   }
+  // }, [darkMode]);
+  
+  const { theme, setTheme } = useTheme()
+
   return (
     <div className={`fixed w-full z-50 transition-all duration-300
-      ${scrolled ? "bg-white text-black shadow-lg" : "bg-white text-black shadow-lg"}`}>
+  ${scrolled
+    ? "bg-white text-black shadow-lg dark:bg-gray-900 dark:text-gray-100"
+    : "bg-white text-black shadow-lg dark:bg-gray-900 dark:text-gray-100"}`}>
       <div className='container'>
         <div className='flex items-center justify-between'>
            <div className='w-20 h-20 overflow-hidden'>
@@ -35,11 +52,19 @@ const Navbar = ({scrolled}) => {
               <li className='linelist'>Contact</li>
            </ul>
            
-            <div className='flex items-center gap-x-8.5 cursor-pointer'>
-                <span className='inline-block hover:text-sky-400 transition-all duration-300 text-[30px]'><FaRegMoon /></span>
+           <div className='flex items-center gap-x-8.5 cursor-pointer'>
+              <div>
+                <span className='inline-block hover:text-sky-400 transition-all duration-300 text-[30px]' onClick={()=>setTheme(theme == "light" ? "dark" : "light")}>{theme == "light"? <FaRegMoon /> : <IoSunnyOutline /> }</span>
+              </div>
+              <div className="relative">
                 <span className='inline-block hover:text-sky-400 transition-all duration-300 text-[30px]'><IoIosHeart /></span>
-                <span className='inline-block hover:text-sky-400 transition-all duration-300 text-[30px]'><FaCartShopping /></span> 
-            </div>
+                  <span className="flex items-center justify-center w-5 h-5 absolute -right-2 -top-2 bg-yellow-500 rounded-[50%]">0</span>
+              </div>
+              <div className="relative">
+                <span className='inline-block relative hover:text-sky-400 transition-all duration-300 text-[30px]'><FaCartShopping /></span> 
+                <span className="flex items-center justify-center w-5 h-5 absolute -right-2 -top-2 bg-yellow-500 rounded-[50%]">0</span>
+              </div>
+           </div>
         </div>
       </div>
     </div>

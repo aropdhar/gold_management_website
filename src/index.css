@@ -5,8 +5,15 @@
   --font-Poppins: "Poppins", sans-serif; 
 }
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+html {
+  transition: background-color 0.5s, color 0.5s;
+}
+
 *{
   list-style: none
+
 }
 .container{
   width: 1350px;
