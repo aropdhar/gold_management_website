@@ -41,3 +41,39 @@ html {
 .linelist:hover::after{
   width: 100%;
 }
+
+.textdesign {
+  position: relative;
+  display: inline-block;
+}
+
+.textdesign::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 1px;
+  background-color: gray;
+  transition: all 0.3s ease;
+}
+
+.textdesign::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #facc15, #ec4899);
+  transition: width 0.4s ease;
+}
+
+.textdesign:hover::before {
+  transform: translateX(100%);
+  opacity: 0;
+}
+
+.textdesign:hover::after {
+  width: 100%;
+}

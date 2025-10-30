@@ -42,7 +42,7 @@ const Banner = () => {
 
 
   return (
-    <div className='pt-24 pb-24 dark:from-gray-800 dark:to-gray-900  bg-linear-to-r from-yellow-50 to-blue-200'>
+    <div className='pt-24 pb-24 dark:from-gray-600 dark:to-blue-200  bg-linear-to-r from-yellow-50 to-blue-200'>
       <div className='container'>
             <Slider {...settings}>
               {banner.map((item) => (
@@ -50,7 +50,7 @@ const Banner = () => {
                   <div className='flex items-center justify-between'>
                       <div className='flex flex-col'>
                         <h1 className="text-[18px] font-bold bg-linear-to-r from-yellow-500 to-amber-700 bg-clip-text text-transparent">{item.title}</h1>
-                        <p className='text-gray-600 text-[35px] font-light  mt-4 w-[460px] leading-10'>{item.subtitle}</p>
+                        <p className='text-gray-600 dark:text-gray-300 text-[35px] font-light  mt-4 w-[460px] leading-10'>{item.subtitle}</p>
                         <div>
                             <button className='mt-6 cursor-pointer bg-yellow-500 hover:bg-yellow-600 transition-all duration-300 text-white font-medium px-6 py-3 rounded-full shadow-md hover:shadow-lg'>Shop Now</button>
                         </div>
