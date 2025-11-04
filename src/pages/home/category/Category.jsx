@@ -64,7 +64,7 @@ const Category = () => {
     }
     
   return (
-    <div className='my-20'>
+    <div className='my-20 group'>
       <div className='container'>
              <h1 className='text-center my-10 font-Poppins text-[35px]'>Popular Categories</h1>
              <div className='relative'>
@@ -84,12 +84,14 @@ const Category = () => {
                         </div>
                     ))}
                 </Slider>
-                 <div className='absolute -left-10 top-19 cursor-pointer' onClick={handleprev}>
-                    <span className='text-[30px] text-gray-400 inline-block'><SlArrowLeft /></span>
-                 </div>
-                 <div className='absolute -right-10 top-19 cursor-pointer' onClick={handlenext}>
-                    <span className='text-[30px] text-gray-400 inline-block'><SlArrowRight /></span>
-                 </div>
+                <div className='hidden group-hover:block transition-all duration-800'>
+                  <div className='absolute -left-10 top-19 cursor-pointer' onClick={handleprev}>
+                      <span className='text-[30px] text-gray-400 inline-block'><SlArrowLeft /></span>
+                  </div>
+                  <div className='absolute -right-10 top-19 cursor-pointer' onClick={handlenext}>
+                      <span className='text-[30px] text-gray-400 inline-block'><SlArrowRight /></span>
+                  </div>
+                </div>
              </div>
       </div>
     </div>

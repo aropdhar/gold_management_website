@@ -42,7 +42,7 @@ const Banner = () => {
 
 
   return (
-    <div className='pt-24 pb-24 dark:from-gray-600 dark:to-blue-200  bg-linear-to-r from-yellow-50 to-blue-200'>
+    <div className='pt-24 pb-24 dark:from-gray-800 dark:to-gray-800 bg-linear-to-r from-yellow-50 to-blue-200'>
       <div className='container'>
             <Slider {...settings}>
               {banner.map((item) => (
