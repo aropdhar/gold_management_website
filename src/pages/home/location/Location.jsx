@@ -1,11 +1,11 @@
 import React from 'react'
 
-const Location = () => {
+const Location = ({contacttext = "Our Store Locations"}) => {
   return (
     <div className='pt-20'>
-         <div className='py-10 bg-[#F5F5F5] flex flex-col gap-y-2 items-center justify-center'>
-                    <h1 className='text-[38px] font-Poppins font-medium'>Our Store Locations</h1>
-                    <p className='text-[16px] font-medium text-[#777777]'>Find your nearest store and get instant directions via Google Maps.</p>
+         <div className='py-10 bg-[#F5F5F5] dark:bg-black flex flex-col gap-y-2 items-center justify-center'>
+            <h1 className='text-[38px] font-Poppins font-medium'>{contacttext}</h1>
+            <p className='text-[16px] font-medium text-[#777777]'>Find your nearest store and get instant directions via Google Maps.</p>
         </div>
         <div className='container'>
             <div>
@@ -22,7 +22,18 @@ const Location = () => {
                     </div>
             </div>
             <div className='mt-20 border-t-2 py-10 border-gray-200'>
-                gfgfgfg
+                <div className='flex flex-col items-center gap-y-4 justify-center'>
+                    <h1 className='text-[30px] font-Poppins font-medium'>Need help? Get in touch with us</h1>
+                    <div className='flex items-center gap-x-3 mt-5'>
+                      <input className='w-[370px] border-2 border-gray-300 py-2 px-2 rounded' type="text" placeholder='Enter Your Name'/>
+                      <input className='w-[370px] border-2 border-gray-300 py-2 px-2 rounded' type="email" placeholder='Enter Your Email'/>
+                    </div>
+                    <input className='w-[752px] border-2 border-gray-300 py-2 px-2 rounded' type="text" placeholder='Enter Your Subject'/>
+                    <div>
+                      <textarea className='w-[752px] h-48 border-2 border-gray-300 py-2 px-2 rounded' name="" id="" placeholder='Enter Your Message'></textarea>
+                    </div>
+                    <button className='bg-black text-white text-[16px] rounded w-[752px] py-2 cursor-pointer'>Send Message</button>
+                </div>
             </div>
         </div>
     </div>

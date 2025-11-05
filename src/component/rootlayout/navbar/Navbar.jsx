@@ -22,9 +22,9 @@ const Navbar = ({scrolled}) => {
 
   return (
     <div className={`fixed w-full z-50 transition-all duration-500
-  ${scrolled
-    ? "bg-white text-black shadow-lg dark:bg-gray-900 dark:text-gray-100"
-    : "bg-white text-black shadow-lg dark:bg-gray-900 dark:text-gray-100"}`}>
+      ${scrolled
+        ? "bg-white text-black shadow-lg dark:bg-gray-900 dark:text-gray-100"
+        : "bg-white text-black shadow-lg dark:bg-gray-900 dark:text-gray-100"}`}>
       <div className='container'>
         <div className='flex items-center justify-between'>
            <div className='w-20 h-20 overflow-hidden'>
@@ -33,7 +33,7 @@ const Navbar = ({scrolled}) => {
              
         
            <ul className='flex font-Poppins items-center gap-x-5 cursor-pointer'>
-              <li className='linelist'><NavLink>Home</NavLink></li>
+              <li className='linelist'><NavLink to={'/'}>Home</NavLink></li>
               <li className='flex linelist items-center group gap-2 cursor-pointer relative '>
                   <div className='flex group items-end gap-x-2' >
                     Shop <span className='inline-block group-hover:rotate-180 text-[18px] transition-all duration-300'><IoIosArrowUp /></span>
@@ -49,7 +49,7 @@ const Navbar = ({scrolled}) => {
               </li>
               <li className='linelist'>Live Rate</li>
               <li className='linelist'>About</li>
-              <li className='linelist'>Contact</li>
+              <li className='linelist'><NavLink to={'/contact'}>Contact</NavLink></li>
            </ul>
            
            <div className='flex items-center gap-x-8.5 cursor-pointer'>

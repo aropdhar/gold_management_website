@@ -1,7 +1,8 @@
 import React from 'react'
-import nacklace from '../../assets/Necklace_card.png'
+import nacklace from '../../../assets/Necklace_card.png'
 import { CiHeart } from 'react-icons/ci'
 import { TbCurrencyTaka } from 'react-icons/tb'
+import { Link } from 'react-router-dom'
 
 const ProductCard = ({itemData}) => {
   
@@ -14,7 +15,7 @@ const ProductCard = ({itemData}) => {
                     <img className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105' src={itemData.image} alt={"nacklace"} />
                 </div>
                 <div className="absolute opacity-0 bottom-6 left-1/2 -translate-x-1/2 transition-all duration-500 group-hover:bottom-8 group-hover:opacity-100">
-                    <button className="bg-white shadow-lg px-5 py-2 font-Poppins font-normal rounded-[10px] dark:text-black cursor-pointer">Quick View</button>
+                    <Link to={`/productDetails/${itemData.id}`} className="bg-white shadow-lg px-5 py-2 font-Poppins font-normal rounded-[10px] dark:text-black cursor-pointer" >Quick View</Link>
                 </div>
             </div>
             <div className='mt-4'>
