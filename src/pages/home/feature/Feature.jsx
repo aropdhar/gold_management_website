@@ -16,7 +16,10 @@ const Feature = () => {
         infinite: true,
         speed: 500,
         slidesToShow: 4,
-        slidesToScroll: 3
+        slidesToScroll: 3,
+        autoplay: true,
+        autoplaySpeed: 3000,
+        arrows: false
       };
 
   return (
@@ -30,7 +33,11 @@ const Feature = () => {
          </div>
          {isActive == "New Arrival" &&
 
-            "New Arrival"
+            <Slider {...settings}>
+                {product.map((item)=>(
+                <ProductCard itemData={item}/>
+                ))}
+            </Slider>
 
          }
 
