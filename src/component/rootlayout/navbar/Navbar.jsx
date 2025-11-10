@@ -8,7 +8,7 @@ import { useTheme } from 'next-themes'
 
 const Navbar = ({scrolled}) => {
 
-  // const [darkMode, setDarkMode] = useState(false);
+  
 
   // useEffect(() => {
   //   if (darkMode) {
@@ -21,10 +21,10 @@ const Navbar = ({scrolled}) => {
   const { theme, setTheme } = useTheme()
 
   return (
-    <div className={`fixed w-full z-50 transition-all duration-500
+    <div className={`fixed w-full z-50 transition-all duration-700 ease-in-out
       ${scrolled
-        ? "bg-white text-black shadow-lg dark:bg-gray-900 dark:text-gray-100"
-        : "bg-white text-black shadow-lg dark:bg-gray-900 dark:text-gray-100"}`}>
+        ? "bg-white text-black shadow-lg dark:bg-gray-900 dark:text-gray-100 scale-x-99"
+        : "bg-white text-black shadow-lg dark:bg-gray-900 dark:text-gray-100 scale-x-100"}`}>
       <div className='container'>
         <div className='flex items-center justify-between'>
            <div className='w-20 h-20 overflow-hidden'>

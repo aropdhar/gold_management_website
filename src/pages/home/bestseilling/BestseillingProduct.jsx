@@ -32,8 +32,7 @@ const BestseillingProduct = () => {
   }
 
   return (
-    <div className='mb-20'  onMouseEnter={() => setIshovering(true)}
-      onMouseLeave={() => setIshovering(false)}>
+    <div className='mb-20'>
       <div className='container'>
           <div className='relative' >
             <ProductHeading title={'Fresh Collection'} subtitle={'Discover pieces you’ll love — just in'}/>
