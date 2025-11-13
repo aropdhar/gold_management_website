@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import product from '../productApi/ProductApi';
 import image1 from '../../../assets/Bangles_card.png'
@@ -11,26 +11,27 @@ import { IoCheckmarkOutline } from 'react-icons/io5';
 import InnerImageZoom from 'react-inner-image-zoom';
 import ProductCard from '../productcard/ProductCard';
 import Slider from "react-slick";
-import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
+import { SlArrowLeft, SlArrowRight, SlArrowUp } from 'react-icons/sl';
 
 const ProductDetails = () => {
     const [count , setCount] = useState(1);
     const [wishlist , setwishlist] = useState(false);
     const [show , setShow] = useState(false);
+    const [scrollbar , setScrollbar] = useState(false);
     const {id} = useParams();
     const products = product.find((item) => item.id === parseInt(id));
     const relatedProducts = product.filter((item) => item.id === parseInt(id));
     
-     const settings = {
-        dots: false,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        autoplay: true,
-        autoplaySpeed: 3000,
-        arrows: false
-      };
+    const settings = {
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 4,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      arrows: false
+    };
 
     const handleincrease = () =>{
       setCount(count + 1);
@@ -53,8 +54,22 @@ const ProductDetails = () => {
      sliderref.current.slickNext()
    }
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 100) { // কতটুকু স্ক্রল করলে দেখাবে সেটা adjust করতে পারো
+        setScrollbar(true);
+      } else {
+        setScrollbar(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
+      {/* product details section */}
       <div className='pt-30'>
         <div className='container'>
             <div className='flex items-center gap-x-10'>
@@ -113,6 +128,9 @@ const ProductDetails = () => {
             </div>
         </div>
       </div>
+
+
+      {/* productdetails related product section */}
       <div className='mt-30' onMouseEnter={()=>setShow(true)} onMouseLeave={()=>setShow(false)}>
         <div className='container'>
           <div className='relative'>
@@ -124,7 +142,7 @@ const ProductDetails = () => {
 
             <div className='mt-4'>
               <Slider ref={sliderref} {...settings}>
-                {relatedProducts.map((item)=>(
+                {product.map((item)=>(
                   <ProductCard itemData={item}/>
                 ))}
               </Slider>
@@ -140,6 +158,31 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+
+
+      {/* productdetails scroll section  */}
+      <div className={`bg-white dark:bg-black dark:text-white z-1000 shadow-lg py-2 w-full text-black fixed left-0 transition-all duration-500 ease-in-out
+       ${scrollbar ? "bottom-0 opacity-100" : "-bottom-40 opacity-0"}`}>
+         <div className='container'>
+             <div className='flex items-center justify-between'>
+                <div className='flex items-center gap-x-5'>
+                    <div className='w-[180px] h-[180px] overflow-hidden'>
+                      <img className='w-full h-full object-contain rounded-2xl dark:shadow-2xl' src={products?.image || image1} alt={products?.image || image1} />
+                    </div>
+                    <div className='flex flex-col gap-y-3'>
+                      <h1 className='text-xl font-Poppins font-medium'>{products?.title}</h1>
+                      <p className='text-[18px] font-Poppins font-normal '>{products?.price}</p>
+                      <span className='text-[18px] text-red-500'>In Stock</span>
+                      <button className='bg-black dark:bg-white dark:text-black dark:hover:bg-black transition-all duration-300 dark:hover:text-white py-1.5 px-5 text-white rounded cursor-pointer'>Add To Cart</button>
+                    </div>
+                </div>
+                <div onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className='bg-black dark:bg-white dark:text-black dark:hover:bg-sky-300 transition-all duration-300 dark:hover:text-white text-white py-3.5 px-3.5 rounded cursor-pointer text-[22px]'>
+                  <SlArrowUp />
+                </div>
+             </div>
+         </div>
+      </div>
+      
     </>
   )
 }

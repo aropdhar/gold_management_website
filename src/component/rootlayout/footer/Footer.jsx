@@ -8,7 +8,7 @@ import { CiTwitter } from 'react-icons/ci';
 
 const Footer = () => {
   return (
-    <div className='bg-black text-white pt-20 '>
+    <div className='bg-black text-white pt-20'>
       <div className='container'>
           <div className='flex items-center pb-15 justify-between'>
 
@@ -20,7 +20,7 @@ const Footer = () => {
                     <p className='font-Poppins font-normal text-[16px] leading-6'>Get 10% off your first order</p>
                     <div className='relative'>
                       <input className='py-3 pl-2.5 pr-11 border-2 border-white' type="text" placeholder='Enter Your Email'/>
-                      <span className='inline-block absolute top-3 right-2 text-[24px] cursor-pointer z-1000'><LuSendHorizontal /></span>
+                      <span className='inline-block absolute top-3 right-2 text-[24px] cursor-pointer z-600'><LuSendHorizontal /></span>
                     </div>
                   </div>
                 </div>
