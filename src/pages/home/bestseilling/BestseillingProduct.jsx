@@ -32,11 +32,11 @@ const BestseillingProduct = () => {
   }
 
   return (
-    <div className='mb-20'>
+    <div className='mb-20' onMouseEnter={()=>setIshovering(true)} onMouseLeave={()=>setIshovering(false)}>
       <div className='container'>
-          <div className='relative' >
+          <div className='relative'>
             <ProductHeading title={'Fresh Collection'} subtitle={'Discover pieces you’ll love — just in'}/>
-             <div className='mt-5'>
+             <div className='mt-3'>
                 <div className="slider-container">
                   <Slider ref={sliderref} {...settings}>
                       {product.map((item , index)=>(
@@ -45,11 +45,11 @@ const BestseillingProduct = () => {
                   </Slider>
                 </div>
              </div>
-             <div className={`text-[32px] text-[#7777] cursor-pointer transition-all duration-300 ${ishovering ? 'opacity-100' : 'opacity-0'}`}>
-                <div className='absolute -left-13 bottom-85' onClick={handlePrev}>
+             <div className={`text-[32px]  text-[#7777] cursor-pointer transition-all duration-300 ${ishovering ? "block" : "hidden"}`}>
+                <div className='absolute -left-13 bottom-68' onClick={handlePrev}>
                   <span><SlArrowLeft /></span>
                 </div>
-                <div className='absolute -right-12 bottom-85' onClick={handleNext}>
+                <div className='absolute -right-12 bottom-68' onClick={handleNext}>
                   <span><SlArrowRight /></span>
                 </div>
              </div>

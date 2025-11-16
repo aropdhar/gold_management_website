@@ -1,25 +1,16 @@
 import React, { useEffect, useState } from "react";
-import { Link, NavLink } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 import { IoIosArrowUp, IoIosHeart } from 'react-icons/io';
 import { FaCartShopping, FaRegMoon } from 'react-icons/fa6';
 import logo from '../../../assets/logo_1.png'
 import { IoSunnyOutline } from "react-icons/io5";
 import { useTheme } from 'next-themes'
+import category from "../../productcomponent/categoryApi/CategoryApi";
 
 const Navbar = ({scrolled}) => {
 
+  const { theme, setTheme } = useTheme();
   
-
-  // useEffect(() => {
-  //   if (darkMode) {
-  //     document.documentElement.classList.add('dark');
-  //   } else {
-  //     document.documentElement.classList.remove('dark');
-  //   }
-  // }, [darkMode]);
-  
-  const { theme, setTheme } = useTheme()
-
   return (
     <div className={`fixed w-full z-50 transition-all duration-700 ease-in-out
       ${scrolled
@@ -40,9 +31,9 @@ const Navbar = ({scrolled}) => {
                   </div>
                           
                   <ul className="absolute  hidden group-hover:block left-0 top-5 mt-2 w-60 bg-white pb-2  shadow-lg rounded-md">
-                      {["Rings", "Necklaces", "Bracelets", "Earrings"].map(
+                      {category.map(
                       (item, index) => (
-                          <li key={index} className="px-4 py-2 dark:text-black hover:bg-yellow-100 border-b-2 border-gray-200 hover:text-yellow-700 transition-all">{item}</li>
+                          <li key={index} className="px-4 py-2 dark:text-black hover:bg-yellow-100 border-b-2 border-gray-200 hover:text-yellow-700 transition-all"><NavLink to={`/product-category/${item.item}`}>{item.item}</NavLink></li>
                       )
                       )}
                   </ul>

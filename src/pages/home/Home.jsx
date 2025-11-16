@@ -7,6 +7,7 @@ import Finding from './Finding/Finding'
 import Demo from './Demo'
 import LiveMoment from './livemoment/LiveMoment'
 import Feature from './feature/Feature'
+import NewSletter from './newsletter/NewSletter'
 
 
 const Home = () => {
@@ -18,6 +19,7 @@ const Home = () => {
       <Finding/>
       <LiveMoment/>
       <Feature/>
+      <NewSletter/>
     </>
   )
 }

@@ -56,7 +56,7 @@ const ProductDetails = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 100) { // কতটুকু স্ক্রল করলে দেখাবে সেটা adjust করতে পারো
+      if (window.scrollY > 100) {
         setScrollbar(true);
       } else {
         setScrollbar(false);
@@ -147,10 +147,10 @@ const ProductDetails = () => {
                 ))}
               </Slider>
               <div className={`transition-all duration-300 ${show ? "block" : "hidden" }`}>
-                  <div className='absolute -left-14 top-72 cursor-pointer' >
+                  <div className='absolute -left-14 top-60 cursor-pointer' >
                       <span onClick={handleprev} className='text-[30px] text-gray-400 inline-block'><SlArrowLeft /></span>
                   </div>
-                  <div className='absolute -right-12 top-72 cursor-pointer'>
+                  <div className='absolute -right-12 top-60 cursor-pointer'>
                       <span onClick={handlenext} className='text-[30px] text-gray-400 inline-block'><SlArrowRight /></span>
                   </div>
               </div>

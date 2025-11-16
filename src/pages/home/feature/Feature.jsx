@@ -3,6 +3,7 @@ import ProductHeading from '../../../component/productheading/ProductHeading'
 import product from '../../../component/productcomponent/productApi/ProductApi'
 import ProductCard from '../../../component/productcomponent/productcard/ProductCard'
 import Slider from "react-slick";
+import { SlArrowLeft, SlArrowRight } from 'react-icons/sl';
 
 
 const Feature = () => {
@@ -10,6 +11,8 @@ const Feature = () => {
     const [isActive , setIsActive] = useState("New Arrival")
 
     const tabs = ['New Arrival' , 'Feature' , 'Best Seller']
+    
+    
 
       const settings = {
         dots: true,
@@ -32,19 +35,28 @@ const Feature = () => {
             ))}
          </div>
          {isActive == "New Arrival" &&
+           <div className='relative'>
+               <Slider {...settings}>
+                  {product.map((item)=>(
+                     <ProductCard itemData={item}/>
+                  ))}
+               </Slider>
 
-            <Slider {...settings}>
-                {product.map((item)=>(
-                <ProductCard itemData={item}/>
-                ))}
-            </Slider>
-
+               <div className={`cursor-pointer text-[#777777b8] `}>
+                  <div className='absolute -left-15 top-45'>
+                    <span className='inline-block text-[30px]'><SlArrowLeft /></span>
+                  </div>
+                  <div className='absolute -right-15 top-45'>
+                    <span className='inline-block text-[30px]'><SlArrowRight /></span>
+                  </div>
+               </div>
+           </div>
          }
 
          {isActive == "Feature" &&
             <Slider {...settings}>
                 {product.map((item)=>(
-                <ProductCard itemData={item}/>
+                  <ProductCard itemData={item}/>
                 ))}
             </Slider>
          }
@@ -52,7 +64,7 @@ const Feature = () => {
          {isActive == "Best Seller" &&
             <Slider {...settings}>
                 {product.map((item)=>(
-                <ProductCard itemData={item}/>
+                  <ProductCard itemData={item}/>
                 ))}
             </Slider>
          }

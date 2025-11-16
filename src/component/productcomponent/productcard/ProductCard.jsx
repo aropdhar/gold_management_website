@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom'
 const ProductCard = ({itemData}) => {
   
   return (
-    <div className='my-20'>
+    <div className='mb-3 mt-10'>
       <div className='container'>
         <div className='w-[300px] relative group'>
             <div className='relative'>
