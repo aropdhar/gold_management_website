@@ -1,11 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 import nacklace from '../../../assets/Necklace_card.png'
 import { CiHeart } from 'react-icons/ci'
 import { TbCurrencyTaka } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
+import { IoCheckmark } from 'react-icons/io5'
 
 const ProductCard = ({itemData}) => {
   
+  const [wishlist , setWishlist] = useState(false);
+
   return (
     <div className='mb-3 mt-10'>
       <div className='container'>
@@ -22,7 +25,9 @@ const ProductCard = ({itemData}) => {
                 <span className='text-[16px] font-Poppins font-normal text-[#777777]'>{itemData.title}</span>
                 <div className='mt-1.5 flex items-center justify-between'>
                    <h1 className='text-[18px] font-Poppins font-normal'>{itemData.subtitle}</h1>
-                   <span className='text-[25px] cursor-pointer'><CiHeart /></span>
+                     
+                   <span className='text-[25px] cursor-pointer z-1200' onClick={()=>setWishlist(!wishlist)}>{wishlist ? <IoCheckmark /> : <CiHeart />}</span>
+
                 </div>
                 <span className='flex items-center text-[18px] mt-2 transition-all duration-500 group-hover:-translate-y-10 group-hover:opacity-0'>{itemData.price} <TbCurrencyTaka /></span>
                 <button className="absolute left-0 -bottom-10  font-Poppins font-medium opacity-0 transition-all duration-500 group-hover:bottom-0 cursor-pointer group-hover:opacity-100 carddesign">Add To Cart</button>

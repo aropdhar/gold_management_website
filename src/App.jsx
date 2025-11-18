@@ -12,6 +12,7 @@ import Location from './pages/home/location/Location';
 import Contact from './pages/home/contact/Contact';
 import ProductDetails from './component/productcomponent/productdetails/ProductDetails';
 import ProductCategory from './pages/productcategory/ProductCategory';
+import Wishlist from './pages/wishlist/Wishlist';
 
 
 const router = createBrowserRouter(
@@ -22,6 +23,7 @@ const router = createBrowserRouter(
          <Route path='/contact' element={<Contact/>}/>
          <Route path='/productDetails/:id' element={<ProductDetails/>}/>
          <Route path='/product-category/:name' element={<ProductCategory/>}/>
+         <Route path='/wishlist' element={<Wishlist/>}/>
      </Route>
   )
 );
