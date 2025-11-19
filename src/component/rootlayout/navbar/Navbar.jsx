@@ -3,9 +3,13 @@ import { Link, NavLink } from 'react-router-dom'
 import { IoIosArrowUp, IoIosHeart } from 'react-icons/io';
 import { FaCartShopping, FaRegMoon } from 'react-icons/fa6';
 import logo from '../../../assets/logo_1.png'
-import { IoSunnyOutline } from "react-icons/io5";
+import { IoCloseCircleOutline, IoSunnyOutline } from "react-icons/io5";
 import { useTheme } from 'next-themes'
 import category from "../../productcomponent/categoryApi/CategoryApi";
+import image1 from '../../../assets/chur.jpg'
+import { VscChromeMinimize } from "react-icons/vsc";
+import { AiOutlinePlus } from "react-icons/ai";
+import { TbCurrencyTaka } from "react-icons/tb";
 
 const Navbar = ({scrolled}) => {
 
@@ -62,10 +66,49 @@ const Navbar = ({scrolled}) => {
         </div>
       </div>
       {/* Cart Drawer — always inside DOM */}
-      <div
-        className={`fixed top-0 right-0 h-full w-[500px] bg-[#f5f5f5] z-2000
-        transition-transform duration-500 ease-in-out ${cartshow ? "translate-x-0" : "translate-x-full"}`}>
-        <button onClick={() => setcartshow(false)}>close</button>
+      <div className={`fixed  top-0 right-0 h-full w-[430px] bg-[#f5f5f5] z-2000
+        transition-transform duration-500 dark:text-black ease-in-out ${cartshow ? "translate-x-0" : "translate-x-full"}`}>
+
+         <div className="bg-[#e7e1e1] shadow-lg flex items-center justify-between py-4 px-5">
+            <h1 className="text-[18px] font-Poppins font-medium">Your Cart {`(${0})`}</h1>
+            <button className="text-[18px] cursor-pointer font-Poppins font-normal"  onClick={() => setcartshow(false)}>Close</button>
+         </div>
+
+         <div className="p-4  flex flex-col h-full">
+             <div className="flex flex-col py-2 px-2 gap-y-2 overflow-y-auto max-h-[410px] ">
+                {[...new Array(5)].map(()=>(
+                      <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-x-3 relative">
+                            <div className="w-[75px] h-[75px] overflow-hidden">
+                              <img className="w-full h-full object-cover rounded" src={image1} alt={image1} />
+                            </div>
+                            <span className="absolute z-3000 -left-2 -top-2 text-black bg-[#e7e1e1] rounded-[50%] cursor-pointer"><IoCloseCircleOutline /></span>
+                            <h1 className="text-[16px] font-Poppins font-normal">Chur001</h1>
+                          </div>
+                            <div className="flex items-center border-2 border-gray-400 gap-x-5 py-1 px-2 rounded">
+                              <span><VscChromeMinimize /></span>
+                              <span>0</span>
+                              <span><AiOutlinePlus /></span>
+                            </div>
+                            <p className="text-[16px] font-Poppins">320000</p>
+                      </div>
+                ))}
+             </div>
+             <div className="flex flex-col z-1000 p-2 gap-y-3 border-t border-gray-400 mt-14">
+               <div className="flex items-center justify-between">
+                 <h1 className="text-[18px]">Subtotal:</h1>
+                 <span className="flex items-center gap-x-0.5 text-[16px] font-Poppins ">320000 <TbCurrencyTaka /></span>
+               </div>
+               <div className="flex items-center justify-center py-2 cursor-pointer text-[18px] border-2 border-black">
+                 <button className="cursor-pointer">View Cart</button>
+               </div>
+               <div className="flex items-center justify-center py-2 cursor-pointer text-[18px] text-white bg-black">
+                 <button className="cursor-pointer">Checkout</button>
+               </div>
+             </div>
+         </div>
+
+         
       </div>
 
     </>
