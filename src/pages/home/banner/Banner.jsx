@@ -47,7 +47,7 @@ const Banner = () => {
             <Slider {...settings}>
               {banner.map((item) => (
                 <div key={item.id}>
-                  <div className='flex items-center justify-between'>
+                  <div className='flex flex-col md:flex-row items-center  justify-between'>
                       <div className='flex flex-col'>
                         <h1 className="text-[18px] font-bold bg-linear-to-r from-yellow-500 to-amber-700 bg-clip-text text-transparent">{item.title}</h1>
                         <p className='text-gray-600 dark:text-gray-300 text-[35px] font-light  mt-4 w-[460px] leading-10'>{item.subtitle}</p>

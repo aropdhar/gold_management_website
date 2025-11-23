@@ -29,7 +29,7 @@ const Navbar = ({scrolled}) => {
             </div>
               
           
-            <ul className='flex font-Poppins items-center gap-x-5 cursor-pointer'>
+            <ul className='hidden  md:flex font-Poppins items-center gap-x-5 cursor-pointer'>
                 <li className='linelist'><NavLink to={'/'}>Home</NavLink></li>
                 <li className='flex linelist items-center group gap-2 cursor-pointer relative '>
                     <div className='flex group items-end gap-x-2' >
@@ -65,15 +65,18 @@ const Navbar = ({scrolled}) => {
           </div>
         </div>
       </div>
+
       {/* Cart Drawer — always inside DOM */}
       <div className={`fixed  top-0 right-0 h-full w-[430px] bg-[#f5f5f5] z-2000
         transition-transform duration-500 dark:text-black ease-in-out ${cartshow ? "translate-x-0" : "translate-x-full"}`}>
 
+        {/* cart header section */}
          <div className="bg-[#e7e1e1] shadow-lg flex items-center justify-between py-4 px-5">
             <h1 className="text-[18px] font-Poppins font-medium">Your Cart {`(${0})`}</h1>
             <button className="text-[18px] cursor-pointer font-Poppins font-normal"  onClick={() => setcartshow(false)}>Close</button>
          </div>
-
+         
+        {/* cart bottom section */}
          <div className="p-4  flex flex-col h-full">
              <div className="flex flex-col py-2 px-2 gap-y-2 overflow-y-auto max-h-[410px] ">
                 {[...new Array(5)].map(()=>(
@@ -107,10 +110,7 @@ const Navbar = ({scrolled}) => {
                </div>
              </div>
          </div>
-
-         
       </div>
-
     </>
   )
 }

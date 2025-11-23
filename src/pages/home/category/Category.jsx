@@ -37,7 +37,7 @@ const Category = () => {
                 <Slider ref={slideref} {...settings}>
                     {category.map((item , index)=>(
                         <div key={index}>
-                            <Link to={`/product-category/${item.item}`}>
+                            <Link  to={`/product-category/${item.item}`}>
                                 <div className='flex flex-col cursor-pointer items-center gap-y-2.5' >
                                     <div className='w-[168px] h-[168px] overflow-hidden imgdesign'>
                                         <img className='w-full h-full object-cover rounded-[50%] ' src={item.image} alt={item.image} />
