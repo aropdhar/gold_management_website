@@ -10,11 +10,14 @@ import image1 from '../../../assets/chur.jpg'
 import { VscChromeMinimize } from "react-icons/vsc";
 import { AiOutlinePlus } from "react-icons/ai";
 import { TbCurrencyTaka } from "react-icons/tb";
+import { useSelector } from "react-redux";
 
 const Navbar = ({scrolled}) => {
 
   const { theme, setTheme } = useTheme();
   const [cartshow , setcartshow] = useState(false);
+  const wishlistItem = useSelector((state) => state.wishList.value);
+
 
   return (
     <>
@@ -55,7 +58,7 @@ const Navbar = ({scrolled}) => {
                 </div>
                 <Link to={'/wishlist'} className="relative">
                   <span className='inline-block hover:text-sky-400 transition-all duration-300 text-[30px]'><IoIosHeart /></span>
-                    <span className="flex items-center justify-center w-5 h-5 absolute -right-2 -top-2 bg-yellow-500 rounded-[50%]">0</span>
+                    <span className="flex items-center justify-center w-5 h-5 absolute -right-2 -top-2 bg-yellow-500 rounded-[50%]">{wishlistItem.length}</span>
                 </Link>
                 <div className="relative transition-all duration-300" onClick={()=>setcartshow(!cartshow)}>
                   <span className='inline-block relative hover:text-sky-400 transition-all duration-300 text-[30px]'><FaCartShopping /></span> 
@@ -67,7 +70,7 @@ const Navbar = ({scrolled}) => {
       </div>
 
       {/* Cart Drawer — always inside DOM */}
-      <div className={`fixed  top-0 right-0 h-full w-[430px] bg-[#f5f5f5] z-2000
+      <div className={`fixed top-0 right-0 h-full w-[430px] bg-[#f5f5f5] z-2000
         transition-transform duration-500 dark:text-black ease-in-out ${cartshow ? "translate-x-0" : "translate-x-full"}`}>
 
         {/* cart header section */}

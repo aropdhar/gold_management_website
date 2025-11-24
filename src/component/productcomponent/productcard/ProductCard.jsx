@@ -4,10 +4,21 @@ import { CiHeart } from 'react-icons/ci'
 import { TbCurrencyTaka } from 'react-icons/tb'
 import { Link } from 'react-router-dom'
 import { IoCheckmark } from 'react-icons/io5'
+import { useSelector, useDispatch } from 'react-redux'
+import { addtowishlist } from '../../reduxSlice/wishlistSlice/wishlistSlice'
 
 const ProductCard = ({itemData}) => {
   
-  const [wishlist , setWishlist] = useState(false);
+  const dispatch = useDispatch()
+  const wishlistItem = useSelector((state) => state.wishList.value);
+  const isAdded = Array.isArray(wishlistItem)
+  ? wishlistItem.some(item => item.id === itemData.id)
+  : false;
+  
+  
+  const handlewishlist = (itemData) =>{
+    dispatch(addtowishlist(itemData));
+  }
 
   return (
     <div className='mb-3 mt-10'>
@@ -26,7 +37,7 @@ const ProductCard = ({itemData}) => {
                 <div className='mt-1.5 flex items-center justify-between'>
                    <h1 className='text-[18px] font-Poppins font-normal'>{itemData.subtitle}</h1>
                      
-                   <span className='text-[25px] cursor-pointer z-1200' onClick={()=>setWishlist(!wishlist)}>{wishlist ? <IoCheckmark /> : <CiHeart />}</span>
+                   <span className='text-[25px] cursor-pointer z-1200' onClick={()=>handlewishlist(itemData)}>{isAdded ? <IoCheckmark /> : <CiHeart />}</span>
 
                 </div>
                 <span className='flex items-center text-[18px] mt-2 transition-all duration-500 group-hover:-translate-y-10 group-hover:opacity-0'>{itemData.price} <TbCurrencyTaka /></span>

@@ -2,7 +2,7 @@ import React from 'react'
 import { LuSendHorizontal } from 'react-icons/lu'
 import qrfooter from '../../../assets/footer_1.png'
 import playstore from '../../../assets/footer_2.png'
-;import appstore from '../../../assets/footer_3.png'
+import appstore from '../../../assets/footer_3.png'
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaRegCopyright } from 'react-icons/fa6';
 import { CiTwitter } from 'react-icons/ci';
 
