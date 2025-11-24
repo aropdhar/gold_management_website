@@ -39,10 +39,10 @@ const Navbar = ({scrolled}) => {
                       Shop <span className='inline-block group-hover:rotate-180 text-[18px] transition-all duration-300'><IoIosArrowUp /></span>
                     </div>
                             
-                    <ul className="absolute  hidden group-hover:block left-0 top-5 mt-2 w-60 bg-white pb-2  shadow-lg rounded-md">
+                    <ul className="absolute  hidden group-hover:block left-0 top-5 mt-2 w-60 dark:bg-[#1c1b22]  bg-white pb-2  shadow-lg rounded-md">
                         {category.map(
                         (item, index) => (
-                            <li key={index} className="px-4 py-2 dark:text-black hover:bg-yellow-100 border-b-2 border-gray-200 hover:text-yellow-700 transition-all"><NavLink to={`/product-category/${item.item}`}>{item.item}</NavLink></li>
+                            <li key={index} className="px-4 py-2  dark:text-white hover:bg-yellow-100 border-b-2 border-gray-200 hover:text-yellow-700 transition-all"><NavLink to={`/product-category/${item.item}`}>{item.item}</NavLink></li>
                         )
                         )}
                     </ul>
