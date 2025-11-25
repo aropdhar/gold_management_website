@@ -12,8 +12,11 @@ import InnerImageZoom from 'react-inner-image-zoom';
 import ProductCard from '../productcard/ProductCard';
 import Slider from "react-slick";
 import { SlArrowLeft, SlArrowRight, SlArrowUp } from 'react-icons/sl';
+import { useSelector, useDispatch } from 'react-redux'
+import { addtocart } from '../../reduxSlice/addtocartSlice/addtocartSlice';
 
 const ProductDetails = () => {
+    const dispatch = useDispatch()
     const [count , setCount] = useState(1);
     const [wishlist , setwishlist] = useState(false);
     const [show , setShow] = useState(false);
@@ -21,7 +24,16 @@ const ProductDetails = () => {
     const {id} = useParams();
     const products = product.find((item) => item.id === parseInt(id));
     const relatedProducts = product.filter((item) => item.id === parseInt(id));
-    
+
+    // redux and localStorage data in wishlist
+
+    const wishlistItem = useSelector((state) => state.wishList.value);
+    const isAdded = Array.isArray(wishlistItem)
+    ? wishlistItem.some(item => item.id === products.id)
+    : false;
+
+    //  slick slider section 
+
     const settings = {
       dots: false,
       infinite: true,
@@ -32,6 +44,8 @@ const ProductDetails = () => {
       autoplaySpeed: 3000,
       arrows: false
     };
+   
+  // add to cart increment and decrement section
 
     const handleincrease = () =>{
       setCount(count + 1);
@@ -43,7 +57,7 @@ const ProductDetails = () => {
       }
     }
     
-    
+  //  slick slider section 
    const sliderref = useRef(null)
    
    const handleprev = () =>{
@@ -66,6 +80,12 @@ const ProductDetails = () => {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  
+  // redux data pass in add to cart
+
+   const handlecart = (cartitem) =>{
+     dispatch(addtocart(cartitem))
+  }
 
   return (
     <>
@@ -93,12 +113,12 @@ const ProductDetails = () => {
                       <button className='text-[20px] cursor-pointer mt-1' onClick={handleincrease}><HiOutlinePlus /></button>
                     </div>
                     <div className='bg-black text-[18px] cursor-pointer rounded-lg text-white px-15 py-2'>
-                      <button className='cursor-pointer'>Add To Cart</button>
+                      <button onClick={()=>handlecart(products)} className='cursor-pointer'>Add To Cart</button>
                     </div>
                   </div>
                   <button className='bg-[#edd2d2] cursor-pointer py-3 text-[18px] font-Poppins font-medium mt-4 hover:bg-black hover:text-white transition-all duration-300 dark:text-black rounded'>BUY IT NOW</button>
                   <div className='flex items-center gap-x-0.5 cursor-pointer' onClick={()=>setwishlist(!wishlist)}>
-                    {wishlist ? 
+                    {isAdded ? 
                         
                     <span className='inline-block text-[25px]'><IoCheckmarkOutline /></span>
 
@@ -173,7 +193,7 @@ const ProductDetails = () => {
                       <h1 className='text-xl font-Poppins font-medium'>{products?.title}</h1>
                       <p className='text-[18px] font-Poppins font-normal '>{products?.price}</p>
                       <span className='text-[18px] text-red-500'>In Stock</span>
-                      <button className='bg-black dark:bg-white dark:text-black dark:hover:bg-black transition-all duration-300 dark:hover:text-white py-1.5 px-5 text-white rounded cursor-pointer'>Add To Cart</button>
+                      <button onClick={()=>handlecart(products)} className='bg-black dark:bg-white dark:text-black dark:hover:bg-black transition-all duration-300 dark:hover:text-white py-1.5 px-5 text-white rounded cursor-pointer'>Add To Cart</button>
                     </div>
                 </div>
                 <div onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })} className='bg-black dark:bg-white dark:text-black dark:hover:bg-sky-300 transition-all duration-300 dark:hover:text-white text-white py-3.5 px-3.5 rounded cursor-pointer text-[22px]'>

@@ -7,12 +7,14 @@ import 'react-inner-image-zoom/lib/styles.min.css';
 import { ThemeProvider } from 'next-themes'
 import { store } from './component/reduxSlice/store.js'
 import { Provider } from 'react-redux'
+import { ToastContainer } from 'react-toastify';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ThemeProvider attribute="class" defaultTheme='light'>
-      <Provider store={store}>  
+      <Provider store={store}>
          <App />
+         <ToastContainer />   
       </Provider>
     </ThemeProvider>
   </StrictMode>,

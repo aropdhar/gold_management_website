@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { IoCheckmark } from 'react-icons/io5'
 import { useSelector, useDispatch } from 'react-redux'
 import { addtowishlist } from '../../reduxSlice/wishlistSlice/wishlistSlice'
+import { addtocart } from '../../reduxSlice/addtocartSlice/addtocartSlice'
 
 const ProductCard = ({itemData}) => {
   
@@ -18,6 +19,10 @@ const ProductCard = ({itemData}) => {
   
   const handlewishlist = (itemData) =>{
     dispatch(addtowishlist(itemData));
+  }
+  
+   const handlecart = (cartitem) =>{
+    dispatch(addtocart(cartitem))
   }
 
   return (
@@ -41,7 +46,7 @@ const ProductCard = ({itemData}) => {
 
                 </div>
                 <span className='flex items-center text-[18px] mt-2 transition-all duration-500 group-hover:-translate-y-10 group-hover:opacity-0'>{itemData.price} <TbCurrencyTaka /></span>
-                <button className="absolute left-0 -bottom-10  font-Poppins font-medium opacity-0 transition-all duration-500 group-hover:bottom-0 cursor-pointer group-hover:opacity-100 carddesign">Add To Cart</button>
+                <button onClick={()=>handlecart(itemData)}  className="absolute left-0 -bottom-10  font-Poppins font-medium opacity-0 transition-all duration-500 group-hover:bottom-0 cursor-pointer group-hover:opacity-100 carddesign">Add To Cart</button>
             </div>
         </div>
       </div>
