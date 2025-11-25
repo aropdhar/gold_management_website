@@ -1,10 +1,10 @@
 import { configureStore } from '@reduxjs/toolkit'
 import wishlistSlice from './wishlistSlice/wishlistSlice'
-import  addtocartSlice  from './addtocartSlice/addtocartSlice'
+import addtocartSlice from './addtocartSlice/addtocartSlice'
 
 export const store = configureStore({
   reducer: {
-    addtocart: addtocartSlice,
     wishList: wishlistSlice,
+    addtocartItem: addtocartSlice
   },
 })

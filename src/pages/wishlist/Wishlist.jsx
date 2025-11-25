@@ -19,7 +19,7 @@ const Wishlist = () => {
   }
 
   const handlecart = (cartitem) =>{
-     dispatch(addtocart(cartitem))
+    dispatch(addtocart(cartitem))
   }
 
   return (

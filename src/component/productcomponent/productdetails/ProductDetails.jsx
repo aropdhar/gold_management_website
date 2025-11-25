@@ -84,7 +84,7 @@ const ProductDetails = () => {
   // redux data pass in add to cart
 
    const handlecart = (cartitem) =>{
-     dispatch(addtocart(cartitem))
+    dispatch(addtocart(cartitem))
   }
 
   return (

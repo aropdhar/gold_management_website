@@ -2,7 +2,9 @@ import { createSlice } from '@reduxjs/toolkit'
 import { infoToastify, successToast } from '../../toastify/toastify'
 
 const initialState = {
-  value: JSON.parse(localStorage.getItem("cartItem")) || [] ,
+  value: Array.isArray(JSON.parse(localStorage.getItem("cartItem") || "[]"))
+    ? JSON.parse(localStorage.getItem("cartItem") || "[]")
+    : [],
 }
 
 export const addtocartSlice = createSlice({
@@ -10,37 +12,33 @@ export const addtocartSlice = createSlice({
   initialState,
   reducers: {
     addtocart: (state, action) => {
-
-      const foundItem = state.value.find((item)=>{
-         return item.id === action.payload.id
+      const findItem = state.value.find((item)=>{
+        return item.id === action.payload.id
       })
-      
-      if(foundItem){
-        foundItem.cartQuantity += 1;
-        infoToastify(`${foundItem.title} Increases Item`);
-        localStorage.setItem("cartItem", JSON.stringify(state.value));
+
+      if(findItem){
+         findItem.cartQuantity += 1;
+         infoToastify(`${findItem.title} Increases Item`)
+         localStorage.setItem("cartItem" , JSON.stringify(state.value))
       }else{
-        state.value.push({...action.payload , cartQuantity: 1});
-        successToast(`${action.payload.title} SuccessFully Added to cart`);
-        localStorage.setItem("cartItem", JSON.stringify(state.value));
+        state.value.push({...action.payload , cartQuantity: 1})
+        successToast(`${action.payload.title} Cart Added SuccessFully`)
+        localStorage.setItem("cartItem" , JSON.stringify(state.value))
       }
-      
     },
-    removeaddtocart: (state , action) =>{
+    removecart: (state , action) =>{
       const removeId = action.payload.id;
-      
-     state.value = state.value.filter((item)=>{
+
+      state.value = state.value.filter((item)=>{
         return item.id !== removeId
       })
-
-      localStorage.setItem("cartItem" , JSON.stringify(state.value))
-
+      
+      localStorage.setItem("cartItem" , JSON.stringify(state.value));
     }
-
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addtocart , removeaddtocart } = addtocartSlice.actions
+export const { addtocart , removecart } = addtocartSlice.actions
 
 export default addtocartSlice.reducer

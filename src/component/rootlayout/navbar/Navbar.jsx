@@ -14,7 +14,8 @@ const Navbar = ({scrolled}) => {
   const { theme, setTheme } = useTheme();
   const [cartshow , setcartshow] = useState(false);
   const wishlistItem = useSelector((state) => state.wishList.value);
-  const cartItem = useSelector((state) => state.addtocart.value);
+  const cartItem = useSelector((state) => state.addtocartItem.value)
+  
   
 
   return (

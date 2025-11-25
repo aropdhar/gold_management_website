@@ -10,11 +10,11 @@ import { addtocart } from '../../reduxSlice/addtocartSlice/addtocartSlice'
 
 const ProductCard = ({itemData}) => {
   
-  const dispatch = useDispatch()
   const wishlistItem = useSelector((state) => state.wishList.value);
   const isAdded = Array.isArray(wishlistItem)
   ? wishlistItem.some(item => item.id === itemData.id)
   : false;
+  const dispatch = useDispatch()
   
   
   const handlewishlist = (itemData) =>{
