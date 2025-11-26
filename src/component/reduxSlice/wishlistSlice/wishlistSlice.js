@@ -1,4 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
+import { successToast } from '../../toastify/toastify';
 
 const initialState = {
   value: Array.isArray(JSON.parse(localStorage.getItem("wishlistItem") || "[]"))
@@ -18,6 +19,7 @@ export const wishlistSlice = createSlice({
           
         if(!exists){
             state.value.push(action.payload);
+            successToast(`${action.payload.title} Wislist Add Successfully!!`)
             localStorage.setItem("wishlistItem" , JSON.stringify(state.value))
         }
     },

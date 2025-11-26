@@ -2,8 +2,8 @@ import React from 'react'
 
 const Addtocart = () => {
   return (
-    <div>
-      
+    <div className='py-100'>
+      ghfgfgf
     </div>
   )
 }

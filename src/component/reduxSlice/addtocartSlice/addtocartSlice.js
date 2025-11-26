@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { infoToastify, successToast } from '../../toastify/toastify'
+import { errorToast, infoToastify, successToast } from '../../toastify/toastify'
 
 const initialState = {
   value: Array.isArray(JSON.parse(localStorage.getItem("cartItem") || "[]"))
@@ -34,11 +34,34 @@ export const addtocartSlice = createSlice({
       })
       
       localStorage.setItem("cartItem" , JSON.stringify(state.value));
+    },
+    increasecart: (state , action) =>{
+      const incrementcart = state.value.find((item)=>{
+        return item.id === action.payload.id
+      })
+      
+      if(incrementcart){
+        incrementcart.cartQuantity += 1;
+        localStorage.setItem("cartItem" , JSON.stringify(state.value))
+      }
+      
+    },
+    decreasecart: (state , action) =>{
+      const decrementItem = state.value.find((item)=>{
+        return item.id === action.payload.id
+      });
+
+      if(decrementItem.cartQuantity > 1){
+        decrementItem.cartQuantity -= 1;
+        localStorage.setItem("cartItem" , JSON.stringify(state.value))
+      }else{
+        errorToast("Minimum CartQuantity 1")
+      }
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addtocart , removecart } = addtocartSlice.actions
+export const { addtocart , removecart , increasecart , decreasecart} = addtocartSlice.actions
 
 export default addtocartSlice.reducer

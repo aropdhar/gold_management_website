@@ -13,6 +13,7 @@ import Contact from './pages/home/contact/Contact';
 import ProductDetails from './component/productcomponent/productdetails/ProductDetails';
 import ProductCategory from './pages/productcategory/ProductCategory';
 import Wishlist from './pages/wishlist/Wishlist';
+import Addtocart from './pages/addtocart/Addtocart';
 
 
 const router = createBrowserRouter(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
          <Route path='/productDetails/:id' element={<ProductDetails/>}/>
          <Route path='/product-category/:name' element={<ProductCategory/>}/>
          <Route path='/wishlist' element={<Wishlist/>}/>
+         <Route path='/addtocart' element={<Addtocart/>}/>
      </Route>
   )
 );

@@ -5,17 +5,27 @@ import { TbCurrencyTaka } from 'react-icons/tb'
 import { VscChromeMinimize } from 'react-icons/vsc'
 import image1 from '../../assets/chur.jpg'
 import { useDispatch, useSelector } from 'react-redux'
-import { removecart } from '../reduxSlice/addtocartSlice/addtocartSlice'
+import { decreasecart, removecart } from '../reduxSlice/addtocartSlice/addtocartSlice'
+import { increasecart } from '../reduxSlice/addtocartSlice/addtocartSlice'
+import { Link } from 'react-router-dom'
 
 const NavbarCart = ({cartshow , setcartshow}) => {
 
     const cartItem = useSelector((state) => state.addtocartItem.value)
     const dispatch = useDispatch()
     
+    
     const handleremove = (cartremove) =>{
        dispatch(removecart(cartremove));
     }
 
+    const handleincrease = (increaseItem) =>{
+       dispatch(increasecart(increaseItem));
+    }
+    
+    const handledecrease = (decreaseItem) =>{
+       dispatch(decreasecart(decreaseItem));
+    }
   return (
     <div>
        {/* Cart Drawer — always inside DOM */}
@@ -29,7 +39,7 @@ const NavbarCart = ({cartshow , setcartshow}) => {
             
             {/* cart bottom section */}
             <div className="p-4 flex flex-col">
-                <div className="flex flex-col py-2 px-2 gap-y-2 overflow-y-scroll h-[360px]">
+                <div className="flex flex-col py-2 px-2 gap-y-2 overflow-y-scroll h-[410px]">
                     {cartItem.map((item , index)=>(
                         <div key={index} className="flex items-center justify-between">
                             <div className="flex items-center gap-x-3 relative">
@@ -40,9 +50,9 @@ const NavbarCart = ({cartshow , setcartshow}) => {
                                 <h1 className="text-[16px] font-Poppins font-normal">{item.title}</h1>
                             </div>
                                 <div className="flex items-center border-2 border-gray-400 gap-x-5 py-1 px-2 rounded">
-                                <span className='cursor-pointer'><VscChromeMinimize /></span>
-                                <span>0</span>
-                                <span className='cursor-pointer'><AiOutlinePlus /></span>
+                                <span onClick={()=>handledecrease(item)} className='cursor-pointer'><VscChromeMinimize /></span>
+                                <span>{`${parseInt(item.cartQuantity)}`}</span>
+                                <span onClick={()=>handleincrease(item)} className='cursor-pointer'><AiOutlinePlus /></span>
                                 </div>
                                 <p className="text-[16px] font-Poppins">{`${ parseInt(item.cartQuantity) * parseInt(item.price)}`}</p>
                         </div>
@@ -53,9 +63,9 @@ const NavbarCart = ({cartshow , setcartshow}) => {
                     <h1 className="text-[18px]">Subtotal:</h1>
                     <span className="flex items-center gap-x-0.5 text-[16px] font-Poppins ">320000 <TbCurrencyTaka /></span>
                 </div>
-                <div className="flex items-center justify-center py-2 cursor-pointer text-[18px] border-2 border-black">
+                <Link to={'/addtocart'} className="flex items-center justify-center py-2 cursor-pointer text-[18px] border-2 border-black transition-all duration-300 hover:bg-black hover:text-white">
                     <button className="cursor-pointer">View Cart</button>
-                </div>
+                </Link>
                 <div className="flex items-center justify-center py-2 cursor-pointer text-[18px] text-white bg-black">
                     <button className="cursor-pointer">Checkout</button>
                 </div>

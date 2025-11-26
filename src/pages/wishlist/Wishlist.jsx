@@ -8,11 +8,14 @@ import { MdEmail } from 'react-icons/md'
 import { useSelector, useDispatch } from 'react-redux'
 import { removewishlist } from '../../component/reduxSlice/wishlistSlice/wishlistSlice'
 import { addtocart } from '../../component/reduxSlice/addtocartSlice/addtocartSlice'
+import { useLocation } from 'react-router-dom'
 
 const Wishlist = () => {
-  
-  const dispatch = useDispatch()
+   
+  const { pathname } = useLocation();
+  const formatted = pathname.replace("/", "").toUpperCase();
   const wishlistItem = useSelector((state) => state.wishList.value);
+  const dispatch = useDispatch()
   
   const handlewishlist = (wishListItem) =>{
      dispatch(removewishlist(wishListItem));
@@ -21,11 +24,13 @@ const Wishlist = () => {
   const handlecart = (cartitem) =>{
     dispatch(addtocart(cartitem))
   }
-
+  
+  
+  
   return (
     <div>
         <div className='pt-35 pb-22 dark:bg-[#1c1b22] bg-[#f5f5f5] flex items-center justify-center'>
-          <h1 className='text-[40px] font-Poppins font-medium'>WishList</h1>
+          <h1 className='text-[40px] font-Poppins font-medium'>{formatted}</h1>
         </div>
         <div className='my-15 '>
           <div className='container'>
