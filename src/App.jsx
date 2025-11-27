@@ -14,19 +14,23 @@ import ProductDetails from './component/productcomponent/productdetails/ProductD
 import ProductCategory from './pages/productcategory/ProductCategory';
 import Wishlist from './pages/wishlist/Wishlist';
 import Addtocart from './pages/addtocart/Addtocart';
+import Invoice from './pages/invoice/Invoice';
 
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-     <Route element={<Rootlayout/>}>
-         <Route path='/' element={<Home/>}/>
-         <Route path='/find-location' element={<Location/>}/>
-         <Route path='/contact' element={<Contact/>}/>
-         <Route path='/productDetails/:id' element={<ProductDetails/>}/>
-         <Route path='/product-category/:name' element={<ProductCategory/>}/>
-         <Route path='/wishlist' element={<Wishlist/>}/>
-         <Route path='/addtocart' element={<Addtocart/>}/>
-     </Route>
+    <Route>
+      <Route element={<Rootlayout/>}>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/find-location' element={<Location/>}/>
+          <Route path='/contact' element={<Contact/>}/>
+          <Route path='/productDetails/:id' element={<ProductDetails/>}/>
+          <Route path='/product-category/:name' element={<ProductCategory/>}/>
+          <Route path='/wishlist' element={<Wishlist/>}/>
+          <Route path='/addtocart' element={<Addtocart/>}/>
+      </Route>
+          <Route path='/invoice' element={<Invoice/>}/>
+    </Route>
   )
 );
 

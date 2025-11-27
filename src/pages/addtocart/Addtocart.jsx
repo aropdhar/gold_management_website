@@ -3,7 +3,7 @@ import html2pdf from "html2pdf.js";
 import { AiOutlinePlus } from 'react-icons/ai';
 import { VscChromeMinimize } from 'react-icons/vsc';
 import image1 from '../../assets/chain.jpg'
-import { useLocation } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { IoIosCloseCircleOutline } from 'react-icons/io';
 import { TbCurrencyTaka } from 'react-icons/tb';
 import { FaFileDownload } from 'react-icons/fa';
@@ -19,19 +19,6 @@ const Addtocart = () => {
   const cartItem = useSelector((state) => state.addtocartItem.value)
   const dispatch = useDispatch()
 
-  const handleDownloadPDF = () =>{
-     const element = printRef.current;
-
-    const options = {
-      margin: 10,
-      filename: 'cart-details.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: { scale: 2 },
-      jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-    };
-
-    html2pdf().set(options).from(element).save();
-  }
 
     const handleincrease = (increaseItem) =>{
       dispatch(increasecart(increaseItem));
@@ -123,9 +110,9 @@ const Addtocart = () => {
                     <h1 className='text-[17px] font-Poppins font-semibold'>Total</h1>
                     <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>130000 <TbCurrencyTaka /></span>
                  </div>
-                 <div className='flex items-center gap-x-1.5 mt-6'>
-                    <button className='bg-black py-2.5 rounded cursor-pointer text-white w-[340px] text-[18px] font-Poppins'>Process To Checkout</button>
-                    <span onClick={handleDownloadPDF} className='inline-block text-[45px] cursor-pointer'><FaFileDownload /></span>
+                 <div className='flex items-center justify-center gap-x-1.5 mt-6'>
+                    <button className='bg-black py-2.5 rounded cursor-pointer text-white px-5  text-[18px] font-Poppins'>Checkout</button>
+                    <Link to={'/invoice'} className='bg-black py-2.5 rounded cursor-pointer px-5 flex items-center gap-x-1.5 text-white  text-[18px] font-Poppins'>Generate Invoice <FaFileDownload/></Link>
                  </div>
                </div>
             </div>
