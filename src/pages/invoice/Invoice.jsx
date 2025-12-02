@@ -1,13 +1,15 @@
 import React, { useRef, useEffect, useState } from "react";
-import html2pdf from "html2pdf.js";
 import { TbCurrencyTaka } from "react-icons/tb";
 import { useSelector } from "react-redux";
 import logo from '../../assets/logo_1.png'
+import html2canvas from "html2canvas";
 
 const Invoice = () => {
      
    const printRef = useRef(null)
    const cartItem = useSelector((state) => state.addtocartItem.value)
+   const totalItem = useSelector((state) => state.addtocartItem)
+   
    const [dateTime, setDateTime] = useState({
     date: "",
     time: ""
@@ -16,7 +18,7 @@ const Invoice = () => {
    
    useEffect(() => {
     const now = new Date();
-
+    
     const currentDate = now.toLocaleDateString("en-GB"); // DD/MM/YYYY
     const currentTime = now.toLocaleTimeString("en-US"); // 12-hour format
 
@@ -27,96 +29,134 @@ const Invoice = () => {
 
   }, []);
   
-  const handleDownloadPDF = () =>{
-      const element = printRef.current;
+
+  const handleDownloadPDF = () => {
+    html2canvas(printRef.current, { scale: 10 }).then((canvas) => {
+        const link = document.createElement("a");
+        link.download = "invoice.png";
+        link.href = canvas.toDataURL("image/png");
+        link.click();
+    });
+  };
+
+  const subtotal = totalItem.totalAmount;
+  const mojuri = subtotal * 6 / 100;
+  const vat = subtotal * 5 / 100;
+  const total = subtotal + mojuri + vat;
   
-      const options = {
-        margin: 10,
-        filename: 'cart-details.pdf',
-        image: { type: 'jpeg', quality: 0.98 },
-        html2canvas: { scale: 2 },
-        jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-      };
   
-      html2pdf().set(options).from(element).save();
-    }
+
   return (
-    <div className="my-6">
-      <div className="container">
-        <div className="flex items-end gap-x-5 justify-center">
-            <div ref={printRef} className="bg-[#f5f5f5] rounded-[10px] py-3 px-10  w-[600px]">
-                    <div className="flex items-center justify-between">
-                        <div>
-                            <h1 className="text-[35px] font-Poppins font-medium">INVOICE</h1>
-                        </div>
-                        <div className="w-[60px] h-[60px] overflow-hidden">
-                            <img className="w-full h-full object-cover"  src={logo} alt={logo} />
-                        </div>
+    <div className="w-full flex justify-center my-10">
+        <div ref={printRef} style={{ width: "210mm", minHeight: "297mm", padding: "20mm", paddingBottom:"0"}} className="shadow-lg relative bg-white">
+            {/* Invoice Header Section */}
+                <div className="flex items-center py-2 border-b border-black justify-between">
+                    <div>
+                        <h1 className="text-[40px] font-Poppins font-semibold">INVOICE</h1>
                     </div>
-
-                    <div className="mt-10 flex items-center justify-between">
-                        <div className="text-[18px] font-normal flex flex-col gap-y-1.5">
-                        <h1>Arop Shorno Shilpaloy And Jewellers.</h1>
-                        <p>Shop: Patil Bari Road,</p>
-                        <span>Narsingdi Sadar,Narsingdi.</span>
-                        </div>
-                        <div className="flex flex-col gap-y-2 text-[16px] font-Poppins">
-                            <span>Time: {dateTime.time}</span>
-                            <span>Date: {dateTime.date}</span>
-                        </div>
+                    <div className="w-[60px] h-[60px] overflow-hidden">
+                        <img className="w-full h-full object-cover"  src={logo} alt={logo} />
                     </div>
-
-                    <div className="mt-10 flex items-center justify-between bg-[#2563EB] p-3 rounded text-white">
-                        <div className="flex flex-1 justify-start">
-                            <h1 className="text-[16px] font-Poppins font-semibold">Product Name</h1>
-                        </div>
-                        <div className="flex flex-1 justify-center">
-                            <h1 className="text-[16px] font-Poppins font-semibold">Unit Price</h1>
-                        </div>
-                        <div className="flex flex-1 justify-center">
-                            <h1 className="text-[16px] font-Poppins font-semibold">Quantity</h1>
-                        </div>
-                        <div className="flex flex-1 justify-end">
-                            <h1 className="text-[16px] font-Poppins font-semibold">Total</h1>
-                        </div>
+                </div>
+            {/* Invoice Address And Time Section */}
+                <div className="mt-10 flex items-center justify-between">
+                    <div className="text-[18px] font-normal flex flex-col gap-y-1.5">
+                    <h1>Arop Shorno Shilpaloy And Jewellers.</h1>
+                    <p>Shop: Patil Bari Road,</p>
+                    <span>Narsingdi Sadar,Narsingdi.</span>
                     </div>
-                    <div className="flex flex-col h-[200px] overflow-y-scroll">
-                        {cartItem.map((item)=>(
-                            <div className="flex  items-center justify-between p-3 border-b border-[#999]">
-                                <div className="flex flex-1 justify-start">
-                                    <h1 className="text-[16px] font-Poppins font-semibold">{item.title}</h1>
-                                </div>
-                                <div className="flex flex-1 justify-center">
-                                    <h1 className="text-[16px] font-Poppins font-semibold">{item.price}</h1>
-                                </div>
-                                <div className="flex flex-1 justify-center">
-                                    <h1 className="text-[16px] font-Poppins font-semibold">{item.cartQuantity}</h1>
-                                </div>
-                                <div className="flex flex-1 justify-end">
-                                    <h1 className="text-[16px] font-Poppins font-semibold">{`${parseInt(item.price) * parseInt(item.cartQuantity)}`}</h1>
-                                </div>
+                    <div className="flex flex-col gap-y-2 text-[16px] font-Poppins">
+                        <span>Time: {dateTime.time}</span>
+                        <span>Date: {dateTime.date}</span>
+                    </div>
+                </div>
+            {/* Invoice product Title Section */}
+                <div className="mt-10 flex items-center justify-between  p-3 rounded text-black border-b border-black">
+                    <div className="flex flex-1 justify-start">
+                        <h1 className="text-[16px] font-Poppins font-semibold">Product Name</h1>
+                    </div>
+                    <div className="flex flex-1 justify-center">
+                        <h1 className="text-[16px] font-Poppins font-semibold">Unit Price</h1>
+                    </div>
+                    <div className="flex flex-1 justify-center">
+                        <h1 className="text-[16px] font-Poppins font-semibold">Quantity</h1>
+                    </div>
+                    <div className="flex flex-1 justify-end">
+                        <h1 className="text-[16px] font-Poppins font-semibold">Total</h1>
+                    </div>
+                </div>
+            {/* Invoice product Content Section */}
+                <div className="flex flex-col h-[200px] overflow-y-scroll">
+                    {cartItem.map((item)=>(
+                        <div className="flex  items-center justify-between p-3 border-b border-[#999]">
+                            <div className="flex flex-1 justify-start">
+                                <h1 className="text-[16px] font-Poppins font-semibold">{item.title}</h1>
                             </div>
-                        ))}
-                    </div>
-                    <div className="bg-[#887c7c32] p-3 flex justify-between items-center rounded-[10px]">
-                        <div>
-                            <h1 className="text-[18px] font-Poppins font-semibold">Subtotal</h1>
+                            <div className="flex flex-1 justify-center">
+                                <h1 className="text-[16px] font-Poppins font-semibold">{item.price}</h1>
+                            </div>
+                            <div className="flex flex-1 justify-center">
+                                <h1 className="text-[16px] font-Poppins font-semibold">{item.cartQuantity}</h1>
+                            </div>
+                            <div className="flex flex-1 justify-end">
+                                <h1 className="text-[16px] font-Poppins font-semibold">{`${parseInt(item.price) * parseInt(item.cartQuantity)}`}</h1>
+                            </div>
                         </div>
+                    ))}
+                </div>
+            {/* Invoice Subtotal And Total Section */}    
+                <div className="flex flex-col items-end justify-end">
+                    <div className="flex flex-1 w-[280px] justify-end mt-4 border-b  items-center gap-x-20 p-3">
+                        <h1 className="text-[16px] font-Poppins font-medium">Sub-Total: </h1>
                         <div>
-                            <span className="text-[18px] font-Poppins ">120000</span>
+                            <span className="text-[16px]  font-Poppins font-semibold">{totalItem.totalAmount}</span>
                         </div>
                     </div>
-                    <div className="mt-5 flex flex-col gap-y-3">
-                        <h1 className="text-[25px] font-Poppins font-normal">Bank Details</h1>
-                        <span className="text-[16px] font-Poppins font-normal">SSL Commerze</span>
+                    <div className="flex flex-1 w-[280px] justify-end mt-4 border-b  items-center gap-x-20 p-3">
+                        <h1 className="text-[16px] font-Poppins font-medium">মজুরি (6%): </h1>
+                        <div>
+                            <span className="text-[16px]  font-Poppins font-semibold">{mojuri}</span>
+                        </div>
                     </div>
-            </div>
-            <div>
-                <button onClick={handleDownloadPDF} className="bg-black text-white px-5 py-2.5 text-[18px] rounded cursor-pointer">DownLoad Pdf</button>
-            </div>
+                    <div className="flex flex-1 w-[280px] justify-end mt-4 border-b  items-center gap-x-20 p-3">
+                        <h1 className="text-[16px] font-Poppins font-medium">Vat(5%): </h1>
+                        <div>
+                            <span className="text-[16px]  font-Poppins font-semibold">{vat}</span>
+                        </div>
+                    </div>
+                    <div className="flex flex-1 w-[280px] justify-end mt-4 border-b gap-x-20 p-3">
+                        <h1 className="text-[16px] font-Poppins font-medium">Total: </h1>
+                        <div>
+                            <span className="text-[16px]  font-Poppins font-semibold">{total}</span>
+                        </div>
+                    </div>
+                </div>
+            
+            {/* Invoice Signature and Thankyou Section */}
+                 
+                <div className="flex justify-between mt-30">
+                    <div className="flex items-center flex-col gap-y-5">
+                        <h1 className="text-[17px] font-signature text-[#60A5FA]">AropDhar</h1>
+                        <div className="border-t">
+                            <span className="text-[22px] font-Poppins font-medium">Administration</span>
+                        </div>
+                    </div>
+                    <div>
+                        <h1 className="text-[36px] font-Poppins font-semibold">Thank You!!</h1>
+                    </div>
+                </div> 
+
+            {/* Invoice Footer Section */}    
+                <div className="flex absolute left-0 right-0 bottom-0 text-[17px] font-Poppins font-normal items-center justify-between border-t  p-6">
+                    <p>+880132022204</p>
+                    <h1>aropdhar0@gmail.com</h1>
+                    <span>Narsingdi Sadar,Narsingdi.</span>
+                </div>
         </div>
-      </div>
-    </div>
+        <div>
+            <button onClick={handleDownloadPDF} className="bg-black text-white px-5 py-2.5 text-[18px] rounded cursor-pointer">DownLoad Pdf</button>
+        </div>
+    </div> 
   )
 }
 

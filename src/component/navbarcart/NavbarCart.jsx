@@ -63,7 +63,7 @@ const NavbarCart = ({cartshow , setcartshow}) => {
                     <h1 className="text-[18px]">Subtotal:</h1>
                     <span className="flex items-center gap-x-0.5 text-[16px] font-Poppins ">320000 <TbCurrencyTaka /></span>
                 </div>
-                <Link to={'/addtocart'} className="flex items-center justify-center py-2 cursor-pointer text-[18px] border-2 border-black transition-all duration-300 hover:bg-black hover:text-white">
+                <Link to={'/addtocart'} onClick={()=>setcartshow(false)} className="flex items-center justify-center py-2 cursor-pointer text-[18px] border-2 border-black transition-all duration-300 hover:bg-black hover:text-white">
                     <button className="cursor-pointer">View Cart</button>
                 </Link>
                 <div className="flex items-center justify-center py-2 cursor-pointer text-[18px] text-white bg-black">

@@ -5,6 +5,9 @@ const initialState = {
   value: Array.isArray(JSON.parse(localStorage.getItem("cartItem") || "[]"))
     ? JSON.parse(localStorage.getItem("cartItem") || "[]")
     : [],
+
+    totalAmount: 0,
+    totalItem: 0
 }
 
 export const addtocartSlice = createSlice({
@@ -57,11 +60,32 @@ export const addtocartSlice = createSlice({
       }else{
         errorToast("Minimum CartQuantity 1")
       }
+    },
+    getTotal: (state , action) =>{
+
+      const total = state.value.reduce(
+      (initialValue, item) => {
+        const { price, cartQuantity } = item;
+        const numericPrice = parseFloat(String(price).replace(/,/g, ""));
+        const TotalPrice = numericPrice * cartQuantity;
+        
+        initialValue.amount += TotalPrice;
+        initialValue.quantity += cartQuantity;
+        
+        
+        return initialValue;
+      },
+      { amount: 0, quantity: 0 }
+      );
+      
+      state.totalAmount = total.amount;
+      state.totalItem = total.quantity;
+
     }
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { addtocart , removecart , increasecart , decreasecart} = addtocartSlice.actions
+export const { addtocart , removecart , increasecart , decreasecart , getTotal} = addtocartSlice.actions
 
 export default addtocartSlice.reducer

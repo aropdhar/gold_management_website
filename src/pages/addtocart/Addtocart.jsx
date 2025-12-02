@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useEffect, useRef } from 'react'
 import html2pdf from "html2pdf.js";
 import { AiOutlinePlus } from 'react-icons/ai';
 import { VscChromeMinimize } from 'react-icons/vsc';
@@ -8,7 +8,7 @@ import { IoIosCloseCircleOutline } from 'react-icons/io';
 import { TbCurrencyTaka } from 'react-icons/tb';
 import { FaFileDownload } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { decreasecart, increasecart } from '../../component/reduxSlice/addtocartSlice/addtocartSlice';
+import { decreasecart, increasecart , getTotal} from '../../component/reduxSlice/addtocartSlice/addtocartSlice';
 
 
 const Addtocart = () => {
@@ -17,9 +17,16 @@ const Addtocart = () => {
   const {pathname} = useLocation();
   const filter = pathname.replace("/" , " ").toLocaleUpperCase();
   const cartItem = useSelector((state) => state.addtocartItem.value)
+  const totalAmount = useSelector((state) => state.addtocartItem)
   const dispatch = useDispatch()
+  
+  
+    useEffect(()=>{
+      
+      dispatch(getTotal())
 
-
+    },[dispatch , localStorage.getItem("cartItem")])
+  
     const handleincrease = (increaseItem) =>{
       dispatch(increasecart(increaseItem));
     }
@@ -27,7 +34,15 @@ const Addtocart = () => {
     const handledecrease = (decreaseItem) =>{
       dispatch(decreasecart(decreaseItem));
     }
-  
+    
+    const subtotal = totalAmount.totalAmount;
+    const mojuri = subtotal * 6 / 100;
+    const vat = subtotal * 5 / 100;
+    const total = subtotal + mojuri + vat;
+    
+    
+    
+    
   return (
     <div>
       <div className='pt-30 pb-18 dark:bg-[#1c1b22] bg-[#f5f5f5] flex items-center justify-center '>
@@ -92,23 +107,23 @@ const Addtocart = () => {
                <div className='flex flex-col'>
                  <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
                    <h1 className='text-[17px] font-Poppins font-semibold'>SubTotal</h1>
-                   <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>620000<TbCurrencyTaka /></span>
+                   <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>{subtotal}<TbCurrencyTaka /></span>
                  </div>
                  <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
                    <h1>Total Item</h1>
-                   <span>{`${cartItem.length}`}</span>
+                   <span>{`${totalAmount.totalItem}`}</span>
                  </div>
                  <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
                    <h1>মজুরি (6%)</h1>
-                   <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>30000 <TbCurrencyTaka /></span>
+                   <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>{mojuri} <TbCurrencyTaka /></span>
                  </div>
                  <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
                    <h1>VAT (5%)</h1>
-                   <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>30000 <TbCurrencyTaka /></span>
+                   <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>{vat} <TbCurrencyTaka /></span>
                  </div>
                  <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
                     <h1 className='text-[17px] font-Poppins font-semibold'>Total</h1>
-                    <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>130000 <TbCurrencyTaka /></span>
+                    <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>{total} <TbCurrencyTaka /></span>
                  </div>
                  <div className='flex items-center justify-center gap-x-1.5 mt-6'>
                     <button className='bg-black py-2.5 rounded cursor-pointer text-white px-5  text-[18px] font-Poppins'>Checkout</button>
