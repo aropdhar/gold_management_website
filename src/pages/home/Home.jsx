@@ -13,8 +13,8 @@ import NewSletter from './newsletter/NewSletter'
 const Home = () => {
   return (
     <>
-      <Banner/>
-      <Category/>
+       <Banner/>
+       <Category/>
       <BestseillingProduct/>
       <Finding/>
       <LiveMoment/>

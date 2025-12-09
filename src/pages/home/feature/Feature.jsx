@@ -37,7 +37,7 @@ const Feature = () => {
 
   return (
     <div className='mb-20' onMouseEnter={()=>setIshovering(true)} onMouseLeave={()=>setIshovering(false)}>
-      <div className='container'>
+      <div className='custom-container mx-auto'>
          <ProductHeading title={'Feature Product'}/>
          <div className='mt-2 flex items-center gap-x-3 text-[20px]  text-[#777] justify-center'>
             {tabs.map((tab)=>(

@@ -6,16 +6,84 @@ import category from '../../../component/productcomponent/categoryApi/CategoryAp
 
 const Category = () => {
 
+    // const settings = {
+    //   dots: false,
+    //   infinite: true,
+    //   speed: 500,
+    //   slidesToShow: 5,
+    //   slidesToScroll: 3,
+    //   autoplay: true,
+    //   autoplaySpeed: 3000,
+    //   arrows: false,
+    //   responsive: [
+    //   {
+    //     breakpoint: 1024,
+    //     settings: {
+    //       slidesToShow: 3,
+    //       slidesToScroll: 3,
+    //       infinite: true,
+    //       dots: true
+    //     }
+    //   },
+    //   {
+    //     breakpoint: 600,
+    //     settings: {
+    //       slidesToShow: 2,
+    //       slidesToScroll: 2,
+    //       initialSlide: 2
+    //     }
+    //   },
+    //   {
+    //     breakpoint: 480,
+    //     settings: {
+    //       slidesToShow: 2,
+    //       slidesToScroll: 1
+    //     }
+    //   }
+    // ]
+    // };
+    
     const settings = {
-      dots: false,
-      infinite: true,
-      speed: 500,
-      slidesToShow: 5,
-      slidesToScroll: 3,
-      autoplay: true,
-      autoplaySpeed: 3000,
-      arrows: false
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 3000,
+    arrows: false,
+    responsive: [
+        {
+            breakpoint: 1280, // large screen
+            settings: {
+                slidesToShow: 4,
+                slidesToScroll: 1,
+            },
+        },
+        {
+            breakpoint: 1024, // laptop/tablet
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 1,
+            },
+        },
+        {
+            breakpoint: 768, // tablet
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 1,
+            },
+        },
+        {
+            breakpoint: 480, // mobile
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+            },
+        },
+      ],
     };
+
 
     const slideref = useRef(null)
     
@@ -31,30 +99,30 @@ const Category = () => {
     
   return (
     <div className='my-20 group'>
-      <div className='container'>
-             <h1 className='text-center my-10 font-Poppins text-[35px]'>Popular Categories</h1>
+      <div className='custom-container mx-auto'>
+             <h1 className='text-center my-10 font-Poppins text-[25px] md:text-[35px]'>Popular Categories</h1>
              <div className='relative'>
                 <Slider ref={slideref} {...settings}>
                     {category.map((item , index)=>(
                         <div key={index}>
                             <Link  to={`/product-category/${item.item}`}>
                                 <div className='flex flex-col cursor-pointer items-center gap-y-2.5' >
-                                    <div className='w-[168px] h-[168px] overflow-hidden imgdesign'>
+                                    <div className='w-[168px] h-[168px] overflow-hidden md:imgdesign'>
                                         <img className='w-full h-full object-cover rounded-[50%] ' src={item.image} alt={item.image} />
                                     </div>
                                     <div>
-                                        <h1 className='textdesign font-Poppins font-medium cursor-pointer text-[18px]'>{item.item}</h1>
+                                        <h1 className='md:textdesign font-Poppins font-medium cursor-pointer text-[18px]'>{item.item}</h1>
                                     </div>
                                 </div>
                             </Link>
                         </div>
                     ))}
                 </Slider>
-                <div className='hidden group-hover:block transition-all duration-800'>
-                  <div className='absolute -left-10 top-19 cursor-pointer' onClick={handleprev}>
+                <div className='block md:hidden md:group-hover:block transition-all duration-800'>
+                  <div className='absolute md:-left-10 top-19 cursor-pointer' onClick={handleprev}>
                       <span className='text-[30px] text-gray-400 inline-block'><SlArrowLeft /></span>
                   </div>
-                  <div className='absolute -right-10 top-19 cursor-pointer' onClick={handlenext}>
+                  <div className='absolute right-0 md:-right-10 top-19 cursor-pointer' onClick={handlenext}>
                       <span className='text-[30px] text-gray-400 inline-block'><SlArrowRight /></span>
                   </div>
                 </div>

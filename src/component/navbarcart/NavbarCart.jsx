@@ -29,7 +29,7 @@ const NavbarCart = ({cartshow , setcartshow}) => {
   return (
     <div>
        {/* Cart Drawer — always inside DOM */}
-      <div className={`fixed top-0 right-0 h-full w-[410px] bg-[#f5f5f5] z-2000
+      <div className={`fixed top-0 right-0 h-full w-[300px] md:w-[410px] bg-[#f5f5f5] z-2000
         transition-transform  duration-500 dark:text-black ease-in-out ${cartshow ? "translate-x-0" : "translate-x-full"}`}> 
             {/* cart header section */}
             <div className="bg-[#e7e1e1] shadow-lg flex items-center justify-between py-4 px-5">

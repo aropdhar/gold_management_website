@@ -8,6 +8,9 @@ import { useTheme } from 'next-themes'
 import category from "../../productcomponent/categoryApi/CategoryApi";
 import { useSelector } from "react-redux";
 import NavbarCart from "../../navbarcart/NavbarCart";
+import NavbarResponsive from "../navbarresponsive/NavbarResponsive";
+import { CiMenuFries } from "react-icons/ci";
+import { RiCloseLargeFill } from "react-icons/ri";
 
 const Navbar = ({scrolled}) => {
 
@@ -15,16 +18,16 @@ const Navbar = ({scrolled}) => {
   const [cartshow , setcartshow] = useState(false);
   const wishlistItem = useSelector((state) => state.wishList.value);
   const cartItem = useSelector((state) => state.addtocartItem.value)
-  
+  const [navbarshow , setNavbarShow] = useState(false)
   
 
   return (
     <>
-      <div className={`fixed w-full z-50 transition-all duration-700 ease-in-out
+      <div className={`fixed px-5 md:px-0 w-full z-50 transition-all duration-700 ease-in-out
         ${scrolled
           ? "bg-white text-black shadow-lg dark:bg-gray-900 dark:text-gray-100 scale-x-99"
           : "bg-white text-black shadow-lg dark:bg-gray-900 dark:text-gray-100 scale-x-100"}`}>
-        <div className='container'>
+        <div className='custom-container mx-auto'>
           <div className='flex items-center justify-between'>
             <div className='w-20 h-20 overflow-hidden'>
                 <img className='w-full h-full object-certain' src={logo} alt={logo} />
@@ -51,12 +54,15 @@ const Navbar = ({scrolled}) => {
                 <li className='linelist'><NavLink to={'/contact'}>Contact</NavLink></li>
             </ul>
             
-            <div className='flex items-center gap-x-8.5 cursor-pointer'>
-                <div>
-                  <span className='inline-block hover:text-sky-400 transition-all duration-300 text-[30px]' onClick={()=>setTheme(theme == "light" ? "dark" : "light")}>{theme == "light"? <FaRegMoon /> : <IoSunnyOutline /> }</span>
+            <div className='flex items-center gap-x-3 md:gap-x-8.5 cursor-pointer'>
+                <div className="block md:hidden">
+                  <span onClick={()=> setNavbarShow(!navbarshow)} className={`text-[30px] hover:text-sky-400 transition-all duration-300`}>{navbarshow ? <RiCloseLargeFill /> : <CiMenuFries />}</span>
                 </div>
-                <Link to={'/wishlist'} className="relative">
-                  <span className='inline-block hover:text-sky-400 transition-all duration-300 text-[30px]'><IoIosHeart /></span>
+                <div>
+                  <span className='hover:text-sky-400 transition-all duration-300 text-[30px] hidden md:block' onClick={()=>setTheme(theme == "light" ? "dark" : "light")}>{theme == "light"? <FaRegMoon /> : <IoSunnyOutline /> }</span>
+                </div> 
+                <Link to={'/wishlist'} className="relative hidden md:block">
+                  <span className='hover:text-sky-400 transition-all duration-300 text-[30px]'><IoIosHeart /></span>
                     <span className="flex items-center justify-center w-5 h-5 absolute -right-2 -top-2 bg-yellow-500 rounded-[50%]">{wishlistItem.length}</span>
                 </Link>
                 <div className="relative transition-all duration-300" onClick={()=>setcartshow(!cartshow)}>
@@ -69,6 +75,8 @@ const Navbar = ({scrolled}) => {
       </div>
       
       {/* navbar cart section */}
+ 
+      <NavbarResponsive theme={theme} setTheme={setTheme} navbarshow={navbarshow} setNavbarShow={setNavbarShow}/>
 
       <NavbarCart cartshow={cartshow} setcartshow={setcartshow}/>
     </>

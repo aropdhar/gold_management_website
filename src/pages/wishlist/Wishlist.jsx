@@ -33,7 +33,7 @@ const Wishlist = () => {
           <h1 className='text-[40px] font-Poppins font-medium'>{formatted}</h1>
         </div>
         <div className='my-15 '>
-          <div className='container'>
+          <div className='custom-container mx-auto'>
               <div className='flex items-center justify-between border-b-2  border-gray-200 p-4'>
                 <div className='flex flex-1 justify-start'>
                   <span className='text-[16px] font-Poppins'>Product Name</span>

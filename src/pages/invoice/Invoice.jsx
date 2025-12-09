@@ -3,9 +3,12 @@ import { TbCurrencyTaka } from "react-icons/tb";
 import { useSelector } from "react-redux";
 import logo from '../../assets/logo_1.png'
 import html2canvas from "html2canvas";
+import { useNavigate } from "react-router-dom";
+import { successToast } from "../../component/toastify/toastify";
 
 const Invoice = () => {
-     
+
+   const navigate = useNavigate();
    const printRef = useRef(null)
    const cartItem = useSelector((state) => state.addtocartItem.value)
    const totalItem = useSelector((state) => state.addtocartItem)
@@ -36,7 +39,12 @@ const Invoice = () => {
         link.download = "invoice.png";
         link.href = canvas.toDataURL("image/png");
         link.click();
-    });
+    }).finally(()=>{
+        successToast('Invoice Pdf & Image Download SuccessFully!!!')
+        setTimeout(() => {
+            navigate('/')
+        }, 2000);
+    })
   };
 
   const subtotal = totalItem.totalAmount;

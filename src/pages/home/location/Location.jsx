@@ -13,7 +13,7 @@ const Location = () => {
          
        {/* contact and map section */}
 
-         <div className='container'>
+         <div className='custom-container mx-auto'>
           <div>
                   <div className="w-full h-[400px]">
                           <iframe

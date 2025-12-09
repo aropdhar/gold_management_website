@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom'
 const Finding = () => {
   return (
     <div className='my-20'>
-      <div className='container'>
+      <div className='custom-container mx-auto'>
          <div className='flex items-center justify-center bg-[#121111ef] py-10 gap-x-5 text-white rounded-[5px]'>
             <span className='inline-block text-[35px]'><IoHomeOutline /></span>
             <p className='text-[22px] font-Poppins font-medium'>Find Beauty in Every Corner — Nearby Jewelry Stores</p>

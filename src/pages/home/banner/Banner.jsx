@@ -15,7 +15,30 @@ const Banner = () => {
     slidesToScroll: 1,
     autoplay: true,
     autoplaySpeed: 3000,
-    arrows: false
+    arrows: false,
+    responsive: [
+    {
+      breakpoint: 1024, // Tablet & small laptop
+      settings: {
+        slidesToShow: 1,
+        arrows: false
+      }
+    },
+    {
+      breakpoint: 768, // Mobile landscape
+      settings: {
+        slidesToShow: 1,
+        arrows: false
+      }
+    },
+    {
+      breakpoint: 480, // Mobile portrait
+      settings: {
+        slidesToShow: 1,
+        arrows: false
+      }
+    }
+  ]
   };
 
   const banner = [
@@ -42,20 +65,20 @@ const Banner = () => {
 
 
   return (
-    <div className='pt-24 pb-24 dark:from-gray-800 dark:to-gray-800 bg-linear-to-r from-yellow-50 to-blue-200'>
-      <div className='container'>
+    <div className='pt-24 pb-5 md:pt-24 md:pb-24 dark:from-gray-800 dark:to-gray-800 bg-linear-to-r from-yellow-50 to-blue-200'>
+      <div className='custom-container mx-auto'>
             <Slider {...settings}>
               {banner.map((item) => (
                 <div key={item.id}>
-                  <div className='flex flex-col md:flex-row items-center  justify-between'>
+                  <div className='flex items-center px-5 justify-between'>
                       <div className='flex flex-col'>
-                        <h1 className="text-[18px] font-bold bg-linear-to-r from-yellow-500 to-amber-700 bg-clip-text text-transparent">{item.title}</h1>
-                        <p className='text-gray-600 dark:text-gray-300 text-[35px] font-light  mt-4 w-[460px] leading-10'>{item.subtitle}</p>
+                        <h1 className="text-[12px] md:text-[18px] font-bold bg-linear-to-r from-yellow-500 to-amber-700 bg-clip-text text-transparent">{item.title}</h1>
+                        <p className='text-gray-600 dark:text-gray-300 text-[12px] md:text-[35px] font-light  mt-4 w-auto  md:w-[460px] md:leading-10'>{item.subtitle}</p>
                         <div>
-                            <button className='mt-6 cursor-pointer bg-yellow-500 hover:bg-yellow-600 transition-all duration-300 text-white font-medium px-6 py-3 rounded-full shadow-md hover:shadow-lg'>Shop Now</button>
+                            <button className='mt-6 cursor-pointer bg-yellow-500 hover:bg-yellow-600 transition-all duration-300 text-white font-medium px-3 py-1.5 md:px-6 md:py-3 rounded-full text-[12px] shadow-md hover:shadow-lg'>Shop Now</button>
                         </div>
                       </div>
-                      <div key={item.id} className='w-[500px] h-[500px] overflow-hidden'>
+                      <div key={item.id} className='w-[250px] h-[250px] md:w-[500px] md:h-[500px] overflow-hidden'>
                         <img className='w-full h-full object-contain' src={item.image}  alt={`banner-${item.id}`} />
                       </div>
                   </div>

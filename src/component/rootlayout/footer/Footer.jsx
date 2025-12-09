@@ -9,7 +9,7 @@ import { CiTwitter } from 'react-icons/ci';
 const Footer = () => {
   return (
     <div className='bg-black text-white pt-20'>
-      <div className='container'>
+      <div className='custom-container mx-auto'>
           <div className='flex items-center pb-15 justify-between'>
 
              <div className='flex flex-col gap-y-6 '>

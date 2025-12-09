@@ -6,6 +6,56 @@
   --font-signature: "Momo Signature", cursive; 
 }
 
+@layer theme {
+  :root {
+    /* container width for all breakpoints */
+    --container-sm: 100%;
+    --container-md: 640px;
+    --container-lg: 768px;
+    --container-xl: 1024px;
+    --container-2xl: 1350px;
+
+    /* container horizontal padding */
+    --container-padding: 1rem;
+  }
+}
+
+.custom-container {
+  width: var(--container-sm);
+  max-width: var(--container-sm);
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 640px) {
+  .custom-container {
+    max-width: var(--container-md);
+  }
+}
+
+@media (min-width: 768px) {
+  .custom-container {
+    max-width: var(--container-lg);
+  }
+}
+
+@media (min-width: 1024px) {
+  .custom-container {
+    max-width: var(--container-xl);
+  }
+}
+
+@media (min-width: 1280px) {
+  .custom-container {
+    max-width: var(--container-2xl);
+  }
+}
+
+
+
+
 @custom-variant dark (&:where(.dark, .dark *));
 
 html {
@@ -16,10 +66,10 @@ html {
   list-style: none
 
 }
-.container{
+/* .container{
   width: 1350px;
   margin: 0 auto;
-}
+} */
 
 .linelist{
   position: relative;
