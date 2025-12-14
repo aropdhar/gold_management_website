@@ -27,10 +27,10 @@ const ProductCard = ({itemData}) => {
 
   return (
     <div className='mb-3 mt-10'>
-      <div className='container'>
-        <div className='w-[300px] relative group'>
+      <div className='custom-container mx-auto'>
+        <div className='w-[230px]  lg:w-[300px] relative group'>
             <div className='relative'>
-                <div className='w-[300px] h-[300px] overflow-hidden'>
+                <div className='w-[230px] h-[220px] lg:w-[300px] lg:h-[300px] overflow-hidden'>
                     <img className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105' src={itemData.image} alt={"nacklace"} />
                 </div>
                 <div className="absolute opacity-0 bottom-6 left-1/2 -translate-x-1/2 transition-all duration-500 group-hover:bottom-8 group-hover:opacity-100">

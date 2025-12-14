@@ -6,7 +6,8 @@ import Footer from './footer/Footer'
 
 const Rootlayout = () => {
    const [scrolled, setScrolled] = useState(false);
-
+    
+    
     useEffect(() => {
       const handleScroll = () => {
         if (window.scrollY > 50) { // 50px scroll hole active hobe

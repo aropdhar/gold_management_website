@@ -23,17 +23,16 @@ const Navbar = ({scrolled}) => {
 
   return (
     <>
-      <div className={`fixed px-5 md:px-0 w-full z-50 transition-all duration-700 ease-in-out
+      <div className={`fixed px-5 md:px-0 w-full z-50 transition-all duration-500 ease-in-out
         ${scrolled
-          ? "bg-white text-black shadow-lg dark:bg-gray-900 dark:text-gray-100 scale-x-99"
-          : "bg-white text-black shadow-lg dark:bg-gray-900 dark:text-gray-100 scale-x-100"}`}>
+          ? "-translate-y-13 bg-white shadow-lg dark:bg-gray-900"
+          : "translate-y-0 bg-white dark:bg-gray-900"}`}>
         <div className='custom-container mx-auto'>
           <div className='flex items-center justify-between'>
             <div className='w-20 h-20 overflow-hidden'>
                 <img className='w-full h-full object-certain' src={logo} alt={logo} />
             </div>
               
-          
             <ul className='hidden  md:flex font-Poppins items-center gap-x-5 cursor-pointer'>
                 <li className='linelist'><NavLink to={'/'}>Home</NavLink></li>
                 <li className='flex linelist items-center group gap-2 cursor-pointer relative '>

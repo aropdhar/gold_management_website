@@ -57,7 +57,7 @@ const NavbarResponsive = ({navbarshow , setNavbarShow , theme , setTheme}) => {
              {Show == 'Categories' &&
                 <div className='p-5 flex flex-col gap-y-5 text-[16px] font-Poppins font-normal'>
                     {category.map((item)=>(
-                      <li className='cursor-pointer'><Link to={`/product-category/${item.item}`}>{item.item}</Link></li>
+                      <li key={item.id} className='cursor-pointer'><Link to={`/product-category/${item.item}`}>{item.item}</Link></li>
                     ))}
                 </div>
             }

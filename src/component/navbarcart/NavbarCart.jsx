@@ -42,19 +42,19 @@ const NavbarCart = ({cartshow , setcartshow}) => {
                 <div className="flex flex-col py-2 px-2 gap-y-2 overflow-y-scroll h-[410px]">
                     {cartItem.map((item , index)=>(
                         <div key={index} className="flex items-center justify-between">
-                            <div className="flex items-center gap-x-3 relative">
+                            <div className="flex flex-col lg:flex-row items-center gap-x-3 relative">
                                 <div className="w-[75px] h-[75px] overflow-hidden">
                                 <img className="w-full h-full object-cover rounded" src={item.image} alt={item.image} />
                                 </div>
                                 <span onClick={()=>handleremove(item)} className="absolute z-3000 -left-2 -top-2 text-black bg-[#e7e1e1] rounded-[50%] cursor-pointer"><IoCloseCircleOutline /></span>
                                 <h1 className="text-[16px] font-Poppins font-normal">{item.title}</h1>
                             </div>
-                                <div className="flex items-center border-2 border-gray-400 gap-x-5 py-1 px-2 rounded">
-                                <span onClick={()=>handledecrease(item)} className='cursor-pointer'><VscChromeMinimize /></span>
-                                <span>{`${parseInt(item.cartQuantity)}`}</span>
-                                <span onClick={()=>handleincrease(item)} className='cursor-pointer'><AiOutlinePlus /></span>
-                                </div>
-                                <p className="text-[16px] font-Poppins">{`${ parseInt(item.cartQuantity) * parseInt(item.price)}`}</p>
+                            <div className="flex items-center border-2 border-gray-400 gap-x-5 py-1 px-2 rounded">
+                            <span onClick={()=>handledecrease(item)} className='cursor-pointer'><VscChromeMinimize /></span>
+                            <span>{`${parseInt(item.cartQuantity)}`}</span>
+                            <span onClick={()=>handleincrease(item)} className='cursor-pointer'><AiOutlinePlus /></span>
+                            </div>
+                            <p className="text-[16px] font-Poppins">{`${ parseInt(item.cartQuantity) * parseInt(item.price)}`}</p>
                         </div>
                     ))}
                 </div>
