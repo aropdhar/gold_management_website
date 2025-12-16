@@ -7,7 +7,7 @@ const Location = () => {
     <div className='pt-20'>
        {/* contact heading section */}
 
-         <div className='py-10 bg-[#F5F5F5] dark:bg-black flex flex-col gap-y-2 items-center justify-center'>    
+         <div className='py-10 bg-[#F5F5F5] dark:bg-[#1c1b22] flex flex-col gap-y-2 items-center justify-center'>    
            <ProductHeading title={'Our Store Locations'} subtitle={'Find your nearest store and get instant directions via Google Maps.'}/>
          </div>
          
