@@ -60,19 +60,7 @@ html {
 }
 
 
-.slick-slide {
-    /* box-sizing: border-box; এই রুলটি Tailwind বা ব্রাউজার ডিফল্ট থেকেই থাকার কথা, তবুও যোগ করা যেতে পারে */
-    padding: 0 10px;
-}
 
-/* যদি centerMode ব্যবহার করেন, তবে এই অতিরিক্ত সুরক্ষামূলক CSS টি কাজে লাগতে পারে */
-.slick-list {
-    margin: 0 -10px; 
-}
-/* .container{
-  width: 1350px;
-  margin: 0 auto;
-} */
 
 .linelist{
   position: relative;

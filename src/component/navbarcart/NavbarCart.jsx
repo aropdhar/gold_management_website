@@ -12,7 +12,9 @@ import { Link } from 'react-router-dom'
 const NavbarCart = ({cartshow , setcartshow}) => {
 
     const cartItem = useSelector((state) => state.addtocartItem.value)
+    const subtotal = useSelector((state) => state.addtocartItem)
     const dispatch = useDispatch()
+    
     
     
     const handleremove = (cartremove) =>{
@@ -60,7 +62,7 @@ const NavbarCart = ({cartshow , setcartshow}) => {
                 <div className="flex flex-col z-1000 p-2 gap-y-3 border-t  border-gray-400 mt-12">
                 <div className="flex items-center justify-between">
                     <h1 className="text-[18px]">Subtotal:</h1>
-                    <span className="flex items-center gap-x-0.5 text-[16px] font-Poppins ">320000 <TbCurrencyTaka /></span>
+                    <span className="flex items-center gap-x-0.5 text-[16px] font-Poppins ">{subtotal.totalAmount} <TbCurrencyTaka /></span>
                 </div>
                 <Link to={'/addtocart'} onClick={()=>setcartshow(false)} className="flex items-center justify-center py-2 cursor-pointer text-[18px] border-2 border-black transition-all duration-300 hover:bg-black hover:text-white">
                     <button className="cursor-pointer">View Cart</button>

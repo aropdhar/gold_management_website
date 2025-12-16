@@ -19,7 +19,7 @@ const Home = () => {
        <Finding/>
        <LiveMoment/>
        <Feature/>
-       <NewSletter/>
+       <NewSletter/> 
     </>
   )
 }

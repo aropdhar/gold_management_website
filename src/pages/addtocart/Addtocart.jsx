@@ -100,7 +100,7 @@ const Addtocart = () => {
           </div>
           {/* apply Subtotal section */}
           <div className='flex flex-col gap-y-2  md:flex-row md:gap-x-2 lg:gap-x-0 md:items-start md:justify-between items-center justify-center'>
-            <div className='flex items-center gap-x-5'>
+            <div className='flex items-center gap-x-1'>
                <input className='border-2 border-black py-2 md:py-1 lg:py-2 outline-none px-1.5 lg:w-[250px] rounded' type="text" placeholder='Apply Coupon'/>
                <button className='bg-red-500 py-2 px-3 md:px-2 md:text-[14px] lg:px-5 lg:text-[18px] text-white rounded cursor-pointer'>Apply Coupon</button>
             </div>
