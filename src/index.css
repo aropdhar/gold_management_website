@@ -53,18 +53,21 @@
   }
 }
 
-
-
-
 @custom-variant dark (&:where(.dark, .dark *));
 
 html {
   transition: background-color 0.5s, color 0.5s;
 }
 
-*{
-  list-style: none
 
+.slick-slide {
+    /* box-sizing: border-box; এই রুলটি Tailwind বা ব্রাউজার ডিফল্ট থেকেই থাকার কথা, তবুও যোগ করা যেতে পারে */
+    padding: 0 10px;
+}
+
+/* যদি centerMode ব্যবহার করেন, তবে এই অতিরিক্ত সুরক্ষামূলক CSS টি কাজে লাগতে পারে */
+.slick-list {
+    margin: 0 -10px; 
 }
 /* .container{
   width: 1350px;
@@ -93,14 +96,9 @@ html {
   width: 100%;
 }
 
-.slick-slide > div {
-  transform-style: preserve-3d;
-  position: relative;
-  z-index: 1;
-}
 
 
-.carddesign{
+/* .carddesign{
   position: relative;
   bottom: 25px
 }
@@ -113,7 +111,7 @@ html {
   bottom: 0;
   width: 100%;
   height: 1px
-}
+} */
 
 /* .textdesign {
   position: relative;

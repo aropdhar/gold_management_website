@@ -49,33 +49,35 @@ const Addtocart = () => {
         <h1 className='text-[40px]'>{filter}</h1>
       </div>
       <div className='mt-15 mb-25'>
-        <div className='container'>
+        <div className='custom-container mx-auto'>
           {/* cart section */}
           <div className='mb-20'>
             {/* add to cart title section */}
             <div className='flex items-center p-4 border-b-2 border-gray-300 justify-between'>
               <div className='flex flex-1 justify-start'>
-                <h1 className='text-[15px] font-Poppins'>Product Name</h1>
+                <h1 className='text-[10px] lg:text-[15px] font-Poppins'>Product Name</h1>
               </div>
               <div className='flex flex-1 justify-center'>
-                <h1 className='text-[15px] font-Poppins'>Price</h1>
+                <h1 className='text-[10px] lg:text-[15px] font-Poppins'>Price</h1>
               </div>
               <div className='flex flex-1 justify-center'>
-                <h1 className='text-[15px] font-Poppins'>Quantity</h1>
+                <h1 className='text-[10px] lg:text-[15px] font-Poppins'>Quantity</h1>
               </div>
               <div className='flex flex-1 justify-end'>
-                <h1 className='text-[15px] font-Poppins'>SubTotal</h1>
+                <h1 className='text-[10px] lg:text-[15px] font-Poppins'>SubTotal</h1>
               </div>
             </div>
               
             {/* add to cart product details section */}
             <div className='flex flex-col h-[400px] overflow-y-scroll'>
               {cartItem.map((item , index)=>(
-                <div key={index} className='flex  items-center border-b-2 p-4 border-gray-300 justify-between'>
-                    <div className='flex flex-1 justify-start items-center gap-x-2.5'>
-                      <span><IoIosCloseCircleOutline /></span>
-                      <div className='w-[65px] h-[65px] overflow-hidden'>
-                          <img className='w-full h-full object-cover rounded' src={item.image} alt={item.image} />
+                <div key={index} className='flex items-center border-b-2 p-4 border-gray-300 justify-between'>
+                    <div className='flex flex-col md:flex-row flex-1 justify-start items-center gap-x-2.5'>
+                      <div className='relative'>
+                        <span className='absolute -left-1 -top-1 bg-[#f5f5f5] rounded-[50%]'><IoIosCloseCircleOutline /></span>
+                        <div className='w-[65px] h-[65px] overflow-hidden'>
+                            <img className='w-full h-full object-cover rounded' src={item.image} alt={item.image} />
+                        </div>
                       </div>
                       <h1>{item.title}</h1>
                     </div>
@@ -83,7 +85,7 @@ const Addtocart = () => {
                       <h1>{item.price}</h1>
                     </div>
                     <div className='flex flex-1 justify-center items-center'>
-                      <div className='flex items-center justify-between py-1 px-1.5  border-2 border-gray-300 w-[120px]'>
+                      <div className='flex items-center justify-between py-1 px-1.5  border-2 border-gray-300 w-20 md:w-[120px]'>
                         <span onClick={()=>handledecrease(item)} className='cursor-pointer'><VscChromeMinimize/></span>
                         <span>{item.cartQuantity}</span>
                         <span onClick={()=>handleincrease(item)} className='cursor-pointer'><AiOutlinePlus/></span>
@@ -97,12 +99,12 @@ const Addtocart = () => {
             </div>
           </div>
           {/* apply Subtotal section */}
-          <div className='flex items-start justify-between'>
+          <div className='flex flex-col gap-y-2  md:flex-row md:gap-x-2 lg:gap-x-0 md:items-start md:justify-between items-center justify-center'>
             <div className='flex items-center gap-x-5'>
-               <input className='border-2 border-black py-2 outline-none px-1.5 w-[250px] rounded' type="text" placeholder='Apply Coupon'/>
-               <button className='bg-red-500 py-2 px-5 text-white rounded cursor-pointer'>Apply Coupon</button>
+               <input className='border-2 border-black py-2 md:py-1 lg:py-2 outline-none px-1.5 lg:w-[250px] rounded' type="text" placeholder='Apply Coupon'/>
+               <button className='bg-red-500 py-2 px-3 md:px-2 md:text-[14px] lg:px-5 lg:text-[18px] text-white rounded cursor-pointer'>Apply Coupon</button>
             </div>
-            <div ref={printRef} className='w-[420px] p-5 rounded border-2 border-black'>
+            <div className='lg:w-[420px] p-5 rounded border-2 border-black'>
                <h1 className='text-[20px] font-Poppins '>Cart Totals</h1>
                <div className='flex flex-col'>
                  <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
@@ -126,8 +128,8 @@ const Addtocart = () => {
                     <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>{total} <TbCurrencyTaka /></span>
                  </div>
                  <div className='flex items-center justify-center gap-x-1.5 mt-6'>
-                    <button className='bg-black py-2.5 rounded cursor-pointer text-white px-5  text-[18px] font-Poppins'>Checkout</button>
-                    <Link to={'/invoice'} className='bg-black py-2.5 rounded cursor-pointer px-5 flex items-center gap-x-1.5 text-white  text-[18px] font-Poppins'>Generate Invoice <FaFileDownload/></Link>
+                    <button className='bg-black py-2.5 rounded cursor-pointer text-white px-3 md:px-5  text-[18px] font-Poppins'>Checkout</button>
+                    <Link to={'/invoice'} className='bg-black py-2.5 rounded cursor-pointer md:px-5 flex items-center gap-x-1.5 text-white  md:text-[18px] px-3 font-Poppins'>Generate Invoice <FaFileDownload/></Link>
                  </div>
                </div>
             </div>

@@ -6,11 +6,11 @@ const LiveMoment = () => {
   return (
     <div className='my-20'>
       <div className='custom-container mx-auto'>
-         <div className='flex items-center gap-x-4'>
-            <div className='w-[668px] h-[403px] overflow-hidden'>
-               <img className='w-full h-full object-center transition-all duration-500 hover:scale-105' src={recover} alt={recover} />
+         <div className='flex flex-col md:flex-row gap-y-4  items-center md:gap-x-4'>
+            <div className='w-[340px] h-[280px] lg:w-[668px] lg:h-[403px] overflow-hidden'>
+               <img className='w-full h-full object-center transition-all duration-500 lg:hover:scale-105' src={recover} alt={recover} />
             </div>
-            <div className='w-[668px] h-[403px] overflow-hidden'>
+            <div className='w-[340px] h-[280px] lg:w-[668px] lg:h-[403px] overflow-hidden'>
                <img className='w-full h-full object-center transition-all duration-500 hover:scale-105' src={recover2} alt={recover2} />
             </div>
          </div>

@@ -29,16 +29,16 @@ const Location = () => {
           </div>
           <div className='mt-20 border-t-2 py-10 border-gray-200'>
               <div className='flex flex-col items-center gap-y-4 justify-center'>
-                  <h1 className='text-[30px] font-Poppins font-medium'>Need help? Get in touch with us</h1>
-                  <div className='flex items-center gap-x-3 mt-5'>
-                    <input className='w-[370px] border-2 border-gray-300 py-2 px-2 rounded' type="text" placeholder='Enter Your Name'/>
-                    <input className='w-[370px] border-2 border-gray-300 py-2 px-2 rounded' type="email" placeholder='Enter Your Email'/>
+                  <h1 className='text-[16px] lg:text-[30px] font-Poppins font-medium'>Need help? Get in touch with us</h1>
+                  <div className='flex flex-col gap-y-3 lg:flex-row items-center lg:gap-x-3 mt-5'>
+                    <input className='w-[350px] lg:w-[370px] border-2 border-gray-300 py-2 px-2 rounded' type="text" placeholder='Enter Your Name'/>
+                    <input className='w-[350px] lg:w-[370px] border-2 border-gray-300 py-2 px-2 rounded' type="email" placeholder='Enter Your Email'/>
                   </div>
-                  <input className='w-[752px] border-2 border-gray-300 py-2 px-2 rounded' type="text" placeholder='Enter Your Subject'/>
+                  <input className='w-[350px] lg:w-[752px] border-2 border-gray-300 py-2 px-2 rounded' type="text" placeholder='Enter Your Subject'/>
                   <div>
-                    <textarea className='w-[752px] h-48 border-2 border-gray-300 py-2 px-2 rounded' name="" id="" placeholder='Enter Your Message'></textarea>
+                    <textarea className='w-[350px] lg:w-[752px] h-48 border-2 border-gray-300 py-2 px-2 rounded' name="" id="" placeholder='Enter Your Message'></textarea>
                   </div>
-                  <button className='bg-black text-white text-[16px] rounded w-[752px] py-2 cursor-pointer'>Send Message</button>
+                  <button className='bg-black text-white text-[16px] rounded w-[320px] lg:w-[752px] py-2 cursor-pointer'>Send Message</button>
               </div>
           </div>
          </div>

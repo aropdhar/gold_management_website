@@ -77,12 +77,12 @@ const BestseillingProduct = () => {
                   </Slider>
                 </div>
              </div>
-             <div className={`text-[32px] w-full flex justify-between text-[#b0a0a077] lg:text-[#7777] cursor-pointer absolute top-[50%] -translate-y-[50%] transition-all duration-300 ${ishovering ? "opacity-100" : "opacity-0"} opacity-100`}>
+             <div className={`text-[32px] w-full flex justify-between text-[#b0a0a077] lg:text-[#7777] cursor-pointer absolute top-[50%] -translate-y-[50%] transition-all duration-300 lg:${ishovering ? "opacity-100" : "opacity-0"} opacity-100`}>
                 <div onClick={handlePrev}>
-                  <span className=''><SlArrowLeft /></span>
+                  <span className='lg:absolute lg:-left-10 lg:-bottom-5'><SlArrowLeft /></span>
                 </div>
                 <div onClick={handleNext}>
-                  <span><SlArrowRight /></span>
+                  <span className='lg:absolute lg:-right-10 lg:-bottom-5'><SlArrowRight /></span>
                 </div>
              </div>
           </div>

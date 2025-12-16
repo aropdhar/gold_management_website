@@ -28,12 +28,12 @@ const ProductCard = ({itemData}) => {
   return (
     <div className='mb-3 mt-10'>
       <div className='custom-container mx-auto'>
-        <div className='w-[230px]  lg:w-[300px] relative group'>
+        <div className='w-[230px]  xl:w-[300px] relative group'>
             <div className='relative'>
-                <div className='w-[230px] h-[220px] lg:w-[300px] lg:h-[300px] overflow-hidden'>
+                <div className='w-[230px] h-[220px] xl:w-[300px] xl:h-[300px] overflow-hidden'>
                     <img className='w-full h-full object-cover transition-transform duration-500 group-hover:scale-105' src={itemData.image} alt={"nacklace"} />
                 </div>
-                <div className="absolute opacity-0 bottom-6 left-1/2 -translate-x-1/2 transition-all duration-500 group-hover:bottom-8 group-hover:opacity-100">
+                <div className="absolute opacity:100 xl:opacity-0 bottom-6 left-13  xl:left-1/2 xl:-translate-x-1/2 transition-all duration-500 xl:group-hover:bottom-8 xl:group-hover:opacity-100">
                     <Link to={`/productDetails/${itemData.id}`} className="bg-white shadow-lg px-5 py-2 font-Poppins font-normal rounded-[10px] dark:text-black cursor-pointer" >Quick View</Link>
                 </div>
             </div>
@@ -46,7 +46,7 @@ const ProductCard = ({itemData}) => {
 
                 </div>
                 <span className='flex items-center text-[18px] mt-2 transition-all duration-500 group-hover:-translate-y-10 group-hover:opacity-0'>{itemData.price} <TbCurrencyTaka /></span>
-                <button onClick={()=>handlecart(itemData)}  className="absolute left-0 -bottom-10  font-Poppins font-medium opacity-0 transition-all duration-500 group-hover:bottom-0 cursor-pointer group-hover:opacity-100 carddesign">Add To Cart</button>
+                <button onClick={()=>handlecart(itemData)}  className="absolute left-0 -bottom-10  font-Poppins font-medium opacity-0 transition-all duration-500 group-hover:bottom-0 cursor-pointer group-hover:opacity-100 border-b border-gray-400">Add To Cart</button>
             </div>
         </div>
       </div>
