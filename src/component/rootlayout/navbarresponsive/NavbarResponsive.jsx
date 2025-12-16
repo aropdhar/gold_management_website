@@ -32,7 +32,7 @@ const NavbarResponsive = ({navbarshow , setNavbarShow , theme , setTheme}) => {
             {/* navbar responsive title */}
             <div className='flex px-5  border-b-2 border-gray-300 items-center gap-x-8'>
                 {tabs.map((tabs)=>(
-                <button onClick={()=>setShow(tabs)}  className={`text-[20px] font-Poppins text-[#777] cursor-pointer py-3 border-b-2 transition-all duration-300 ${Show == tabs ? "border-b-2 border-black text-black dark:text-white dark:border-gray-400" : "border-b-0 border-transparent"}`}>{tabs}</button>
+                <button  onClick={()=>setShow(tabs)}  className={`text-[20px] font-Poppins text-[#777] cursor-pointer py-3 border-b-2 transition-all duration-300 ${Show == tabs ? "border-b-2 border-black text-black dark:text-white dark:border-gray-400" : "border-b-0 border-transparent"}`}>{tabs}</button>
                 ))}
             </div>
             {Show == 'Menu' &&
@@ -57,7 +57,7 @@ const NavbarResponsive = ({navbarshow , setNavbarShow , theme , setTheme}) => {
              {Show == 'Categories' &&
                 <div className='p-5 flex flex-col gap-y-5 text-[16px] font-Poppins font-normal'>
                     {category.map((item)=>(
-                      <li key={item.id} className='cursor-pointer'><Link to={`/product-category/${item.item}`}>{item.item}</Link></li>
+                      <li key={item.id} className='cursor-pointer list-none'><Link to={`/product-category/${item.item}`}>{item.item}</Link></li>
                     ))}
                 </div>
             }
