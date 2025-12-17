@@ -45,13 +45,13 @@ const Addtocart = () => {
     
   return (
     <div>
-      <div className='pt-30 pb-18 dark:bg-[#1c1b22] bg-[#f5f5f5] flex items-center justify-center '>
+      <div className='pt-30 pb-18 dark:bg-[#1c1b22] dark:text-white bg-[#f5f5f5] flex items-center justify-center '>
         <h1 className='text-[40px]'>{filter}</h1>
       </div>
-      <div className='mt-15 mb-25'>
+      <div className='pt-15 pb-25 md:mt-15 md:mb-25'>
         <div className='custom-container mx-auto'>
           {/* cart section */}
-          <div className='mb-20'>
+          <div className='pb-20 md:mb-20'>
             {/* add to cart title section */}
             <div className='flex items-center p-4 border-b-2 border-gray-300 justify-between'>
               <div className='flex flex-1 justify-start'>
