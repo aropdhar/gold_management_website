@@ -48,7 +48,7 @@ const Addtocart = () => {
       <div className='pt-30 pb-18 dark:bg-[#1c1b22] dark:text-white bg-[#f5f5f5] flex items-center justify-center '>
         <h1 className='text-[40px]'>{filter}</h1>
       </div>
-      <div className='pt-15 pb-25 md:mt-15 md:mb-25'>
+      <div className='pt-15 pb-25 md:mt-15 md:mb-25 dark:bg-[#1c1b22] dark:text-white bg-white'>
         <div className='custom-container mx-auto'>
           {/* cart section */}
           <div className='pb-20 md:mb-20'>
