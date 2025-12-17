@@ -59,7 +59,13 @@ html {
   transition: background-color 0.5s, color 0.5s;
 }
 
+body {
+  background-color: white;
+}
 
+.dark body {
+  background-color: #1c1b22;
+}
 
 
 .linelist{

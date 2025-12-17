@@ -74,7 +74,7 @@ const Addtocart = () => {
                 <div key={index} className='flex items-center border-b-2 p-4 border-gray-300 justify-between'>
                     <div className='flex flex-col md:flex-row flex-1 justify-start items-center gap-x-2.5'>
                       <div className='relative'>
-                        <span className='absolute -left-1 -top-1 bg-[#f5f5f5] rounded-[50%]'><IoIosCloseCircleOutline /></span>
+                        <span className='absolute -left-1 -top-1 bg-[#f5f5f5] rounded-[50%] text-black dark:text-black'><IoIosCloseCircleOutline /></span>
                         <div className='w-[65px] h-[65px] overflow-hidden'>
                             <img className='w-full h-full object-cover rounded' src={item.image} alt={item.image} />
                         </div>
@@ -99,41 +99,41 @@ const Addtocart = () => {
             </div>
           </div>
           {/* apply Subtotal section */}
-          <div className='flex flex-col gap-y-2  md:flex-row md:gap-x-2 lg:gap-x-0 md:items-start md:justify-between items-center justify-center'>
-            <div className='flex items-center gap-x-1'>
-               <input className='border-2 border-black py-2 md:py-1 lg:py-2 outline-none px-1.5 lg:w-[250px] rounded' type="text" placeholder='Apply Coupon'/>
-               <button className='bg-red-500 py-2 px-3 md:px-2 md:text-[14px] lg:px-5 lg:text-[18px] text-white rounded cursor-pointer'>Apply Coupon</button>
+            <div className='flex flex-col gap-y-2  md:flex-row md:gap-x-2 lg:gap-x-0 md:items-start md:justify-between items-center justify-center'>
+              <div className='flex items-center gap-x-1'>
+                <input className='border-2 dark:border-white border-black py-2 md:py-1 lg:py-2 outline-none px-1.5 lg:w-[250px] rounded' type="text" placeholder='Apply Coupon'/>
+                <button className='bg-red-500 py-2 px-3 md:px-2 md:text-[14px] lg:px-5 lg:text-[18px] text-white rounded cursor-pointer'>Apply Coupon</button>
+              </div>
+              <div className='lg:w-[420px] p-5 rounded border-2 dark:border-white border-black'>
+                <h1 className='text-[20px] font-Poppins '>Cart Totals</h1>
+                <div className='flex flex-col'>
+                  <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
+                    <h1 className='text-[17px] font-Poppins font-semibold'>SubTotal</h1>
+                    <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>{subtotal}<TbCurrencyTaka /></span>
+                  </div>
+                  <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
+                    <h1>Total Item</h1>
+                    <span>{`${totalAmount.totalItem}`}</span>
+                  </div>
+                  <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
+                    <h1>মজুরি (6%)</h1>
+                    <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>{mojuri} <TbCurrencyTaka /></span>
+                  </div>
+                  <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
+                    <h1>VAT (5%)</h1>
+                    <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>{vat} <TbCurrencyTaka /></span>
+                  </div>
+                  <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
+                      <h1 className='text-[17px] font-Poppins font-semibold'>Total</h1>
+                      <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>{total} <TbCurrencyTaka /></span>
+                  </div>
+                  <div className='flex items-center justify-center gap-x-1.5 mt-6'>
+                      <button className='bg-black py-2.5 rounded cursor-pointer text-white px-3 md:px-5  text-[18px] font-Poppins'>Checkout</button>
+                      <Link to={'/invoice'} className='bg-black py-2.5 rounded cursor-pointer md:px-5 flex items-center gap-x-1.5 text-white  md:text-[18px] px-3 font-Poppins'>Generate Invoice <FaFileDownload/></Link>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div className='lg:w-[420px] p-5 rounded border-2 border-black'>
-               <h1 className='text-[20px] font-Poppins '>Cart Totals</h1>
-               <div className='flex flex-col'>
-                 <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
-                   <h1 className='text-[17px] font-Poppins font-semibold'>SubTotal</h1>
-                   <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>{subtotal}<TbCurrencyTaka /></span>
-                 </div>
-                 <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
-                   <h1>Total Item</h1>
-                   <span>{`${totalAmount.totalItem}`}</span>
-                 </div>
-                 <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
-                   <h1>মজুরি (6%)</h1>
-                   <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>{mojuri} <TbCurrencyTaka /></span>
-                 </div>
-                 <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
-                   <h1>VAT (5%)</h1>
-                   <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>{vat} <TbCurrencyTaka /></span>
-                 </div>
-                 <div className='flex items-center justify-between border-b border-[#999] px-1.5 py-3'>
-                    <h1 className='text-[17px] font-Poppins font-semibold'>Total</h1>
-                    <span className='flex items-center gap-x-0.5 text-[15px] font-Poppins font-medium'>{total} <TbCurrencyTaka /></span>
-                 </div>
-                 <div className='flex items-center justify-center gap-x-1.5 mt-6'>
-                    <button className='bg-black py-2.5 rounded cursor-pointer text-white px-3 md:px-5  text-[18px] font-Poppins'>Checkout</button>
-                    <Link to={'/invoice'} className='bg-black py-2.5 rounded cursor-pointer md:px-5 flex items-center gap-x-1.5 text-white  md:text-[18px] px-3 font-Poppins'>Generate Invoice <FaFileDownload/></Link>
-                 </div>
-               </div>
-            </div>
-          </div>
         </div>
       </div>
     </div>

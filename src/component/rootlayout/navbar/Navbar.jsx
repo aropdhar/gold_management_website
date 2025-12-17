@@ -23,7 +23,7 @@ const Navbar = ({scrolled}) => {
 
   return (
     <>
-      <div className={`fixed px-5 md:px-0 w-full z-50 transition-all duration-500 ease-in-out
+      <div className={`fixed px-5 md:px-0 w-full z-1000 transition-all duration-500 ease-in-out
         ${scrolled
           ? "-translate-y-13 bg-white shadow-lg dark:bg-gray-900"
           : "translate-y-0 bg-white dark:bg-gray-900"}`}>

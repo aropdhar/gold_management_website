@@ -72,7 +72,9 @@ const BestseillingProduct = () => {
                 <div className="slider-container">
                   <Slider ref={sliderref} {...settings}>
                       {product.map((item , index)=>(
-                        <ProductCard key={index} itemData={item}/>
+                        <div key={index}>
+                          <ProductCard itemData={item}/>
+                        </div>
                       ))}
                   </Slider>
                 </div>
@@ -87,8 +89,6 @@ const BestseillingProduct = () => {
              </div>
           </div>
       </div>
-      
-
     </div>
   )
 }
