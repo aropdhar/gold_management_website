@@ -64,7 +64,7 @@ const BestseillingProduct = () => {
     }
 
   return (
-    <div className='mb-20 bg-white dark:bg-[#1c1b22] dark:text-white' onMouseEnter={()=>setIshovering(true)} onMouseLeave={()=>setIshovering(false)}>
+    <div className='pb-20 md:mb-20 bg-white dark:bg-[#1c1b22] dark:text-white' onMouseEnter={()=>setIshovering(true)} onMouseLeave={()=>setIshovering(false)}>
       <div className='custom-container mx-auto'>
           <div className='relative'>
             <ProductHeading title={'Fresh Collection'} subtitle={'Discover pieces you’ll love — just in'}/>

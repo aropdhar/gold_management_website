@@ -70,7 +70,7 @@ const Feature = () => {
     
 
   return (
-    <div className='mb-20 bg-white dark:bg-[#1c1b22] dark:text-white' onMouseEnter={()=>setIshovering(true)} onMouseLeave={()=>setIshovering(false)}>
+    <div className='pb-20 md:mb-20 bg-white dark:bg-[#1c1b22] dark:text-white' onMouseEnter={()=>setIshovering(true)} onMouseLeave={()=>setIshovering(false)}>
         <div className='custom-container mx-auto'>
           <ProductHeading title={'Feature Product'}/>
           <div className='mt-2 flex items-center gap-x-3 text-[20px]  text-[#777] justify-center'>

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 const Finding = () => {
   return (
-    <div className='my-20 bg-white dark:bg-[#1c1b22] dark:text-white'>
+    <div className='py-20 md:my-20 bg-white dark:bg-[#1c1b22] dark:text-white'>
       <div className='custom-container mx-auto'>
          <div className='flex flex-col lg:flex-row gap-y-4 text-center items-center justify-center bg-[#121111ef] py-10 lg:gap-x-5 text-white rounded-[5px]'>
             <span className='inline-block text-[35px]'><IoHomeOutline /></span>
