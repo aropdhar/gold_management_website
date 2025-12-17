@@ -62,7 +62,7 @@ const Category = () => {
     
     
   return (
-    <div className='my-20 group'>
+    <div className='my-20 group bg-white dark:bg-[#1c1b22] dark:text-white'>
       <div className='custom-container mx-auto'>
              <h1 className='text-center my-10 font-Poppins text-[25px] md:text-[35px]'>Popular Categories</h1>
              <div className='relative'>

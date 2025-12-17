@@ -26,7 +26,7 @@ const ProductCard = ({itemData}) => {
   }
 
   return (
-    <div className='mb-3 mt-10'>
+    <div className='mb-3 mt-10 bg-white dark:bg-[#1c1b22] dark:text-white'>
       <div className='custom-container mx-auto'>
         <div className='w-[230px]  xl:w-[300px] relative group'>
             <div className='relative'>

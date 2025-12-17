@@ -11,7 +11,6 @@ const Feature = () => {
     const [isActive , setIsActive] = useState("New Arrival")
     const [ishovering , setIshovering] = useState(false);
     const tabs = ['New Arrival' , 'Feature' , 'Best Seller']
-    const [sliderKey, setSliderKey] = useState(0);
     
     const settings = {
         dots: true,
@@ -58,19 +57,6 @@ const Feature = () => {
 
 
     const sliderref = useRef(null);
-  
-    useEffect(() => {
-        
-        const timer = setTimeout(() => {
-            if (sliderref.current) {
-                sliderref.current.slickGoTo(0); 
-            }
-        }, 100);
-
-        return () => clearTimeout(timer);
-    }, [sliderKey]); 
-    
-    
     
     const handleprev = () =>{
       sliderref.current.slickPrev();
@@ -84,17 +70,17 @@ const Feature = () => {
     
 
   return (
-    <div className='mb-20' onMouseEnter={()=>setIshovering(true)} onMouseLeave={()=>setIshovering(false)}>
+    <div className='mb-20 bg-white dark:bg-[#1c1b22] dark:text-white' onMouseEnter={()=>setIshovering(true)} onMouseLeave={()=>setIshovering(false)}>
         <div className='custom-container mx-auto'>
           <ProductHeading title={'Feature Product'}/>
           <div className='mt-2 flex items-center gap-x-3 text-[20px]  text-[#777] justify-center'>
               {tabs.map((tab)=>(
-                <button key={tab} onClick={()=>{if(isActive !== tab){setIsActive(tab); setSliderKey(prevKey => prevKey + 1);}}} className={`cursor-pointer border-b-2  transition-all duration-500 ${isActive == tab ? "text-black dark:text-[#777] border-b-2 text-[20px] border-black dark:border-white" : "text-[#777] border-0 border-transparent"}`}>{tab}</button>
+                <button key={tab} onClick={()=>setIsActive(tab)} className={`cursor-pointer border-b-2  transition-all duration-500 ${isActive == tab ? "text-black dark:text-[#777] border-b-2 text-[20px] border-black dark:border-white" : "text-[#777] border-0 border-transparent"}`}>{tab}</button>
               ))}
           </div>
           {isActive == "New Arrival" && 
             (<div className='relative'>
-                <Slider key={sliderKey} ref={sliderref} {...settings}>
+                <Slider ref={sliderref} {...settings}>
                     {product.map((item , index)=>(
                       <div key={index}>
                         <ProductCard itemData={item}/>
@@ -102,7 +88,7 @@ const Feature = () => {
                     ))}
                 </Slider>
 
-                <div className={`cursor-pointer text-[#777777b8] transition-all duration-300 opacity-100 lg:${isActive == "New Arrival" && ishovering ? "opacity-100" : "opacity-0"}`}>
+                <div className={`cursor-pointer text-[#777777b8] transition-all duration-300 opacity-100 xl:${isActive == "New Arrival" && ishovering ? "opacity-100" : "opacity-0"}`}>
                     <div className='absolute left-0 top-35 lg:-left-15 lg:top-45' onClick={handleprev}>
                       <span className='inline-block text-[30px]'><SlArrowLeft /></span>
                     </div>
@@ -115,7 +101,7 @@ const Feature = () => {
 
           {isActive == "Feature" && 
             (<div className='relative'>
-                  <Slider key={sliderKey} ref={sliderref} {...settings}>
+                  <Slider ref={sliderref} {...settings}>
                       {product.map((item,index)=>(
                         <div key={index}>
                           <ProductCard itemData={item}/>
@@ -123,7 +109,7 @@ const Feature = () => {
                       ))}
                   </Slider>
 
-                  <div className={`cursor-pointer text-[#777777b8] transition-all duration-300 opacity-100 lg:${isActive == "Feature" && ishovering ? "opacity-100" : "opacity-0"}`}>
+                  <div className={`cursor-pointer text-[#777777b8] transition-all duration-300 opacity-100 xl:${isActive == "Feature" && ishovering ? "opacity-100" : "opacity-0"}`}>
                         <div className='absolute left-0 lg:-left-15 top-45' onClick={handleprev}>
                           <span className='inline-block text-[30px]'><SlArrowLeft /></span>
                         </div>
@@ -136,14 +122,14 @@ const Feature = () => {
 
           {isActive == "Best Seller" &&
             (<div className='relative'>
-              <Slider key={sliderKey} ref={sliderref} {...settings}>
+              <Slider ref={sliderref} {...settings}>
                   {product.map((item , index)=>(
                     <div key={index}>
                       <ProductCard itemData={item}/>
                     </div>
                   ))}
               </Slider>
-              <div className={`cursor-pointer text-[#777777b8] transition-all duration-300 opacity-100 lg:${isActive == "Best Seller" && (ishovering ? "opacity-100" : "opacity-0")}`}>
+              <div className={`cursor-pointer text-[#777777b8] transition-all duration-300 opacity-100 xl:${isActive == "Best Seller" && (ishovering ? "opacity-100" : "opacity-0")}`}>
                     <div className='absolute left-0 lg:-left-15 top-45' onClick={handleprev}>
                       <span className='inline-block text-[30px]'><SlArrowLeft /></span>
                     </div>

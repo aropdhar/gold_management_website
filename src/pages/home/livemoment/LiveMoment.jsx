@@ -4,7 +4,7 @@ import recover2 from '../../../assets/recover2.png'
 
 const LiveMoment = () => {
   return (
-    <div className='my-20'>
+    <div className='my-20 bg-white dark:bg-[#1c1b22]'>
       <div className='custom-container mx-auto'>
          <div className='flex flex-col md:flex-row gap-y-4  items-center md:gap-x-4'>
             <div className='w-[340px] h-[280px] lg:w-[668px] lg:h-[403px] overflow-hidden'>

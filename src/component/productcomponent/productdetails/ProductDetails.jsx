@@ -122,7 +122,7 @@ const ProductDetails = () => {
   return (
     <>
       {/* product details section */}
-      <div className='pt-30'>
+      <div className='pt-30 bg-white dark:bg-[#1c1b22] dark:text-white'>
         <div className='custom-container mx-auto'>
             <div className='flex flex-col gap-y-8 md:flex-row items-center px-4 md:px-0 md:gap-x-10'>
 
@@ -133,7 +133,7 @@ const ProductDetails = () => {
                   <h1 className='text-[22px] font-Poppins font-medium'>{products?.title}</h1>
                   <div className='flex items-center gap-x-8'>
                     <span className='text-[20px] font-Poppins font-normal'>{products?.price} Vori</span>
-                    <span className='w-[3px] h-6.5 bg-black'></span>
+                    <span className='w-[3px] h-6.5 bg-black dark:bg-[#f5f5f5]'></span>
                     <p className='text-[18px] text-red-500'>In Stock</p>
                   </div>
                   <div className='border-b-2 border-gray-400'>
@@ -184,7 +184,7 @@ const ProductDetails = () => {
 
 
       {/* productdetails related product section */}
-      <div className='my-30' onMouseEnter={()=>setShow(true)} onMouseLeave={()=>setShow(false)}>
+      <div className='my-30 bg-white dark:bg-[#1c1b22] dark:text-white' onMouseEnter={()=>setShow(true)} onMouseLeave={()=>setShow(false)}>
         <div className='custom-container mx-auto'>
           <div className='relative'>
             <div className='flex items-center justify-center gap-x-4'>

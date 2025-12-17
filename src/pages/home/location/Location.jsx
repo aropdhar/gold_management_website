@@ -4,7 +4,7 @@ import NewSletter from '../newsletter/NewSletter'
 
 const Location = () => {
   return (
-    <div className='pt-20'>
+    <div className='pt-20 bg-white dark:bg-[#1c1b22] dark:text-white'>
        {/* contact heading section */}
 
          <div className='py-10 bg-[#F5F5F5] dark:bg-[#1c1b22] flex flex-col gap-y-2 items-center justify-center'>    

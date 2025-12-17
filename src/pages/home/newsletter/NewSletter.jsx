@@ -2,7 +2,7 @@ import React from 'react'
 
 const NewSletter = () => {
   return (
-    <div className='bg-[#f5f5f5] dark:bg-[#1c1b22]  py-[72px]'>
+    <div className='bg-white dark:bg-[#1c1b22]  py-[72px]'>
       <div className='custom-container mx-auto'>
         <div className='flex flex-col items-center gap-y-4 justify-center'>
           <h1 className='lg:text-[35px] text-[18px] font-Poppins font-medium'>Subscribe Newsletter</h1>

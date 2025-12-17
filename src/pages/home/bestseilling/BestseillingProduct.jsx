@@ -64,7 +64,7 @@ const BestseillingProduct = () => {
     }
 
   return (
-    <div className='mb-20' onMouseEnter={()=>setIshovering(true)} onMouseLeave={()=>setIshovering(false)}>
+    <div className='mb-20 bg-white dark:bg-[#1c1b22] dark:text-white' onMouseEnter={()=>setIshovering(true)} onMouseLeave={()=>setIshovering(false)}>
       <div className='custom-container mx-auto'>
           <div className='relative'>
             <ProductHeading title={'Fresh Collection'} subtitle={'Discover pieces you’ll love — just in'}/>
@@ -77,7 +77,7 @@ const BestseillingProduct = () => {
                   </Slider>
                 </div>
              </div>
-             <div className={`text-[32px] w-full flex justify-between text-[#b0a0a077] lg:text-[#7777] cursor-pointer absolute top-[50%] -translate-y-[50%] transition-all duration-300 lg:${ishovering ? "opacity-100" : "opacity-0"} opacity-100`}>
+             <div className={`text-[32px] w-full flex justify-between text-[#b0a0a077] lg:text-[#7777] cursor-pointer absolute top-[50%] -translate-y-[50%] transition-all duration-300 opacity-100 xl:${ishovering ? "opacity-100" : "opacity-0"}`}>
                 <div onClick={handlePrev}>
                   <span className='lg:absolute lg:-left-10 lg:-bottom-5'><SlArrowLeft /></span>
                 </div>
