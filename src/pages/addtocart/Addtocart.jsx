@@ -8,7 +8,7 @@ import { IoIosCloseCircleOutline } from 'react-icons/io';
 import { TbCurrencyTaka } from 'react-icons/tb';
 import { FaFileDownload } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
-import { decreasecart, increasecart , getTotal} from '../../component/reduxSlice/addtocartSlice/addtocartSlice';
+import { decreasecart, increasecart , getTotal, removecart} from '../../component/reduxSlice/addtocartSlice/addtocartSlice';
 
 
 const Addtocart = () => {
@@ -34,6 +34,10 @@ const Addtocart = () => {
     const handledecrease = (decreaseItem) =>{
       dispatch(decreasecart(decreaseItem));
     }
+
+    const handlecartclose = (closeItem) =>{
+       dispatch(removecart(closeItem)) 
+    }
     
     const subtotal = totalAmount.totalAmount;
     const mojuri = subtotal * 6 / 100;
@@ -53,7 +57,7 @@ const Addtocart = () => {
           {/* cart section */}
           <div className='pb-20 md:mb-20'>
             {/* add to cart title section */}
-            <div className='flex items-center p-4 border-b-2 border-gray-300 justify-between'>
+            <div className='flex items-center px-2 py-4 md:p-4 border-b-2 border-gray-300 justify-between'>
               <div className='flex flex-1 justify-start'>
                 <h1 className='text-[10px] lg:text-[15px] font-Poppins'>Product Name</h1>
               </div>
@@ -69,34 +73,41 @@ const Addtocart = () => {
             </div>
               
             {/* add to cart product details section */}
-            <div className='flex flex-col h-[400px] overflow-y-scroll'>
-              {cartItem.map((item , index)=>(
-                <div key={index} className='flex items-center border-b-2 p-4 border-gray-300 justify-between'>
-                    <div className='flex flex-col md:flex-row flex-1 justify-start items-center gap-x-2.5'>
-                      <div className='relative'>
-                        <span className='absolute -left-1 -top-1 bg-[#f5f5f5] rounded-[50%] text-black dark:text-black'><IoIosCloseCircleOutline /></span>
-                        <div className='w-[65px] h-[65px] overflow-hidden'>
-                            <img className='w-full h-full object-cover rounded' src={item.image} alt={item.image} />
+            {cartItem.length > 0 ?
+
+              <div className='flex flex-col h-[400px] overflow-y-scroll'>
+                {cartItem.map((item , index)=>(
+                  <div key={index} className='flex items-center border-b-2 px-2 py-4 md:p-4 border-gray-300 justify-between'>
+                      <div className='flex flex-col md:flex-row flex-1 justify-start items-center gap-x-2.5'>
+                        <div className='relative'>
+                          <span className='absolute -left-1 -top-1 bg-[#f5f5f5] rounded-[50%] text-black dark:text-black' onClick={()=>handlecartclose(item)}><IoIosCloseCircleOutline /></span>
+                          <div className='w-[65px] h-[65px] overflow-hidden'>
+                              <img className='w-full h-full object-cover rounded' src={item.image} alt={item.image} />
+                          </div>
+                        </div>
+                        <h1 className='text-[12px] md:text-[16px]'>{item.title}</h1>
+                      </div>
+                      <div className='flex flex-1 justify-center'>
+                        <h1 className='text-[12px] md:text-[16px]'>{item.price}</h1>
+                      </div>
+                      <div className='flex flex-1 justify-center items-center'>
+                        <div className='flex items-center justify-between py-1 px-1.5  border-2 border-gray-300 w-20 md:w-[120px]'>
+                          <span onClick={()=>handledecrease(item)} className='cursor-pointer'><VscChromeMinimize/></span>
+                          <span className='text-[12px] md:text-[16px]'>{item.cartQuantity}</span>
+                          <span onClick={()=>handleincrease(item)} className='cursor-pointer'><AiOutlinePlus/></span>
                         </div>
                       </div>
-                      <h1>{item.title}</h1>
-                    </div>
-                    <div className='flex flex-1 justify-center'>
-                      <h1>{item.price}</h1>
-                    </div>
-                    <div className='flex flex-1 justify-center items-center'>
-                      <div className='flex items-center justify-between py-1 px-1.5  border-2 border-gray-300 w-20 md:w-[120px]'>
-                        <span onClick={()=>handledecrease(item)} className='cursor-pointer'><VscChromeMinimize/></span>
-                        <span>{item.cartQuantity}</span>
-                        <span onClick={()=>handleincrease(item)} className='cursor-pointer'><AiOutlinePlus/></span>
+                      <div className='flex flex-1 justify-end'>
+                        <h1 className='text-[12px] md:text-[16px]'>{`${parseInt(item.cartQuantity) * parseInt(item.price)}`}</h1>
                       </div>
-                    </div>
-                    <div className='flex flex-1 justify-end'>
-                      <h1>{`${parseInt(item.cartQuantity) * parseInt(item.price)}`}</h1>
-                    </div>
-                </div>
-              ))}
-            </div>
+                  </div>
+                ))}
+              </div>
+            :
+              <div className='flex items-center justify-center h-[400px] translate-y-[50% , 50%]'>
+                <h1>ProductCart Item Not Found</h1>
+              </div>
+            }
           </div>
           {/* apply Subtotal section */}
             <div className='flex flex-col gap-y-2  md:flex-row md:gap-x-2 lg:gap-x-0 md:items-start md:justify-between items-center justify-center'>

@@ -34,18 +34,18 @@ const Wishlist = () => {
         </div>
         <div className='py-15 md:my-15 '>
           <div className='custom-container mx-auto'>
-              <div className='flex items-center justify-between border-b-2  border-gray-200 p-4'>
+              <div className='flex items-center justify-between border-b-2  border-gray-200 p-2 md:p-4'>
                 <div className='flex flex-1 justify-start'>
-                  <span className='text-[16px] font-Poppins'>Product Name</span>
+                  <span className='text-[10px] md:text-[16px] font-Poppins'>Product Name</span>
                 </div>
                 <div className='flex flex-1 justify-center'>
-                  <span className='text-[16px] font-Poppins'>Unit Price</span>
+                  <span className='text-[10px] md:text-[16px] font-Poppins'>Unit Price</span>
                 </div>
                 <div className='flex flex-1 justify-center'>
-                  <span className='text-[16px] font-Poppins'>Stock Status</span>
+                  <span className='text-[10px] md:text-[16px] font-Poppins'>Stock Status</span>
                 </div>
                 <div className='flex flex-1 justify-end'>
-                  <span className='text-[16px] font-Poppins'>Add To Cart</span>
+                  <span className='text-[10px] md:text-[16px] font-Poppins'>Add To Cart</span>
                 </div>
               </div>
               {wishlistItem.length > 0 ?
@@ -53,22 +53,24 @@ const Wishlist = () => {
                 <div className='h-[400px] overflow-y-scroll'>
                     {wishlistItem.map((item)=>(
                       <div>
-                        <div className='flex items-center justify-between p-4 border-b-2  border-gray-200'>
-                          <div className='flex flex-1 justify-start items-center gap-x-2.5'>
-                              <span onClick={()=>handlewishlist(item)} className='cursor-pointer'><IoCloseCircleOutline /></span>
-                              <div className='w-[65px] h-[65px] overflow-hidden'>
-                                <img className='w-full h-full object-cover rounded-[10px]' src={item.image} alt={item.image} />
-                              </div>
-                              <h1 className='text-[16px] font-Poppins'>{item.title}</h1>
+                        <div className='flex items-center justify-between px-2 py-4 md:p-4 border-b-2  border-gray-200'>
+                          <div className='flex flex-col flex-1 md:flex-row justify-start items-center gap-x-2.5'>
+                            <div className='relative'>
+                                <span onClick={()=>handlewishlist(item)} className='cursor-pointer absolute -left-1 -top-1 bg-[#f5f5f5] text-black rounded-[50%]'><IoCloseCircleOutline /></span>
+                                <div className='w-[65px] h-[65px] overflow-hidden'>
+                                  <img className='w-full h-full object-cover rounded-[10px]' src={item.image} alt={item.image} />
+                                </div>
+                            </div>
+                              <h1 className='text-[10px] md:text-[16px] font-Poppins'>{item.title}</h1>
                           </div>
                           <div className='flex flex-1 justify-center'>
-                            <span className='flex items-center gap-x-0.5 text-[16px] font-Poppins'>{item.price}<TbCurrencyTaka /></span>
+                            <span className='flex items-center gap-x-0.5 text-[12px] md:text-[16px] font-Poppins'>{item.price}<TbCurrencyTaka /></span>
                           </div>
                           <div className='flex flex-1 justify-center'>
-                            <span className='text-[16px] font-Poppins text-red-500'>In Stock</span>
+                            <span className='text-[12px] md:text-[16px] font-Poppins text-red-500'>In Stock</span>
                           </div>
-                          <div className='flex   flex-1 justify-end'>
-                            <button onClick={()=>handlecart(item)} className='bg-black px-4 py-1.5 rounded-[10px] text-white cursor-pointer'>Add To Cart</button>
+                          <div className='flex flex-1 justify-end'>
+                            <button onClick={()=>handlecart(item)} className='bg-black text-[12px] p-2 md:text-[16px] md:px-4 md:py-1.5 rounded-[10px] text-white cursor-pointer'>Add To Cart</button>
                           </div>
                         </div>
                       </div>
