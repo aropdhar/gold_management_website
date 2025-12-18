@@ -6,8 +6,12 @@ import category from '../../productcomponent/categoryApi/CategoryApi';
 import { FaFacebookF, FaInstagram, FaTiktok } from 'react-icons/fa6';
 import { ImYoutube2 } from 'react-icons/im';
 import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
+import { CiHeart } from 'react-icons/ci';
 
-const NavbarResponsive = ({navbarshow , setNavbarShow , theme , setTheme}) => {
+const NavbarResponsive = ({navbarshow , setNavbarShow , theme , setTheme , wishlistItem}) => {
+
+    console.log(wishlistItem.length);
+    
     
     const [Show , setShow] = useState("Menu");
     const tabs = ['Menu' , 'Categories']
@@ -18,7 +22,13 @@ const NavbarResponsive = ({navbarshow , setNavbarShow , theme , setTheme}) => {
        <div className='bg-[#f5f5f5] dark:bg-[#1c1b22] px-5 py-3'>
      {/* dark mode section */}
          <div className='flex items-end justify-end'>
-            <span onClick={()=>setTheme(theme == "light" ? "dark" : "light")} className='text-[26px]'>{theme == "light" ? <IoMoonOutline /> : <IoSunnyOutline />}</span>
+            <div className='flex items-center gap-x-5'>
+               <Link to={'/wishlist'} className='relative cursor-pointer'>
+                 <span className='absolute -top-1 -right-1.5 bg-yellow-500 w-5 h-5 flex items-center justify-center rounded-[50%]'>{`${wishlistItem.length}`}</span>
+                 <span className='text-[30px]'><CiHeart /></span>
+               </Link>
+               <span onClick={()=>setTheme(theme == "light" ? "dark" : "light")} className='text-[26px]'>{theme == "light" ? <IoMoonOutline /> : <IoSunnyOutline />}</span>
+            </div>
          </div>
      {/* navbar responsive header */}
          <div className='flex items-center justify-between'>

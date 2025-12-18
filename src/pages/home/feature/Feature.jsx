@@ -21,6 +21,8 @@ const Feature = () => {
         autoplay: true,
         autoplaySpeed: 3000,
         arrows: false,
+        adaptiveHeight: false,
+        variableWidth: false,
         responsive: [
         {
             breakpoint: 1280, // large screen

@@ -75,7 +75,7 @@ const Navbar = ({scrolled}) => {
       
       {/* navbar cart section */}
  
-      <NavbarResponsive theme={theme} setTheme={setTheme} navbarshow={navbarshow} setNavbarShow={setNavbarShow}/>
+      <NavbarResponsive wishlistItem={wishlistItem} theme={theme} setTheme={setTheme} navbarshow={navbarshow} setNavbarShow={setNavbarShow}/>
 
       <NavbarCart cartshow={cartshow} setcartshow={setcartshow}/>
     </>

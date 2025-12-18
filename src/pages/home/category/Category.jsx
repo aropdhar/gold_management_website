@@ -15,6 +15,8 @@ const Category = () => {
     autoplay: true,
     autoplaySpeed: 3000,
     arrows: false,
+    adaptiveHeight: false,
+    variableWidth: false,
     responsive: [
         {
             breakpoint: 1280, // large screen
@@ -64,14 +66,14 @@ const Category = () => {
   return (
     <div className='py-20 md:my-20 group bg-white dark:bg-[#1c1b22] dark:text-white'>
       <div className='custom-container mx-auto'>
-             <h1 className='text-center my-10 font-Poppins text-[25px] md:text-[35px]'>Popular Categories</h1>
-             <div className='relative'>
+        <h1 className='text-center my-10 font-Poppins text-[25px] md:text-[35px]'>Popular Categories</h1>
+          <div className='relative'>
                 <Slider ref={slideref} {...settings}>
                     {category.map((item , index)=>(
                         <div key={index}>
                             <Link  to={`/product-category/${item.item}`}>
                                 <div className='flex flex-col cursor-pointer items-center gap-y-2.5' >
-                                    <div className='w-[168px] h-[168px] overflow-hidden md:imgdesign'>
+                                    <div className='w-[168px]  h-[168px] overflow-hidden md:imgdesign'>
                                         <img className='w-full h-full object-cover rounded-[50%] ' src={item.image} alt={item.image} />
                                     </div>
                                     <div>
@@ -83,14 +85,14 @@ const Category = () => {
                     ))}
                 </Slider>
                 <div className='block md:hidden md:group-hover:block transition-all duration-800'>
-                  <div className='absolute md:-left-10 top-19 cursor-pointer' onClick={handleprev}>
-                      <span className='text-[30px] text-gray-400 inline-block'><SlArrowLeft /></span>
-                  </div>
-                  <div className='absolute right-0 md:-right-10 top-19 cursor-pointer' onClick={handlenext}>
-                      <span className='text-[30px] text-gray-400 inline-block'><SlArrowRight /></span>
-                  </div>
+                    <div className='absolute md:-left-10 top-19 cursor-pointer' onClick={handleprev}>
+                        <span className='text-[30px] text-gray-400 inline-block'><SlArrowLeft /></span>
+                    </div>
+                    <div className='absolute right-0 md:-right-10 top-19 cursor-pointer' onClick={handlenext}>
+                        <span className='text-[30px] text-gray-400 inline-block'><SlArrowRight /></span>
+                    </div>
                 </div>
-             </div>
+          </div>
       </div>
     </div>
   )
