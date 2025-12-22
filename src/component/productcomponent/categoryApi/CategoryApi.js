@@ -36,6 +36,7 @@ const category = [
         item: "Neclace",
         image: Neclace
     },
+    
 ]
 
 export default category;
