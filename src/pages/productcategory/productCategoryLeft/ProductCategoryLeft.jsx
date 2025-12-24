@@ -3,14 +3,17 @@ import { IoIosArrowUp } from 'react-icons/io'
 import category from '../../../component/productcomponent/categoryApi/CategoryApi';
 import { AiOutlinePlus } from 'react-icons/ai';
 import { VscChromeMinimize } from 'react-icons/vsc';
+import { TbCurrencyTaka } from 'react-icons/tb';
 
-const ProductCategoryLeft = () => {
+const ProductCategoryLeft = ({handlecategory = () =>{}}) => {
 
   const [cursorshow , setCursorShow] = useState(false);
   const [moreshow , setMoreShow] = useState(false);
+  const [priceshow , setPriceShow] = useState(false)
   
+
   return (
-    <div className='w-full bg-[#f5f5f5] p-4'>
+    <div className='w-full p-4'>
 
       {/* category heading section */}
 
@@ -23,7 +26,7 @@ const ProductCategoryLeft = () => {
 
       <div className={`flex flex-col gap-y-2 mt-4 transition-all duration-300 ${cursorshow ? "block translate-y-0" : "hidden -translate-y-full"}`}>
         {category.slice(0,4).map((item , index)=>(
-          <div key={index}>
+          <div key={index} onClick={()=>handlecategory(item.id)}>
              <li className='list-none text-[16px] cursor-pointer'>{item.item}</li>
           </div>
         ))}
@@ -31,7 +34,7 @@ const ProductCategoryLeft = () => {
         {/* Show more items */}
           <div className={`overflow-hidden transition-all flex flex-col gap-y-2 duration-500 ${moreshow ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'}`}>
             {category.slice(4).map((item, index) => (
-              <li key={index} className='list-none text-[16px] cursor-pointer'>
+              <li key={index} onClick={()=>handlecategory(item.id)} className='list-none text-[16px] cursor-pointer'>
                 {item.item}
               </li>
             ))}
@@ -49,7 +52,23 @@ const ProductCategoryLeft = () => {
       {/* category filter and color section */}
 
       <div className='border-t border-gray-400 py-4 mt-4'>
-        vbckvkcbgv
+        <div onClick={()=>setPriceShow(!priceshow)} className='flex items-center justify-between cursor-pointer'>
+           <h1 className='text-[18px] font-Poppins font-medium'>Pricing Filter</h1>
+           <span className={`text-[20px] transition-all duration-300 ${priceshow && "rotate-180"}`}><IoIosArrowUp /></span>
+        </div>
+
+        <div className={`mt-4 transition-all duration-300 ${priceshow ? "block translate-y-0" : "hidden -translate-y-full"}`}>
+           <div>
+               <input type="range" className='w-full'/>
+           </div>
+           <div className='mt-4 flex items-center gap-x-4'>
+               <button className='bg-black px-5 py-1 text-white text-[16px] rounded cursor-pointer font-Poppins'>Filter</button>
+               <div className='flex items-center gap-x-2'>
+                  <p className='text-[18px] font-Inter font-medium'>Price:</p>
+                  <span className='flex mt-1 items-center gap-x-0.5 text-[16px] font-Poppins font-normal'>{`${20000}`}<TbCurrencyTaka /></span>
+               </div>
+           </div>
+        </div>
       </div>
     </div>
   )

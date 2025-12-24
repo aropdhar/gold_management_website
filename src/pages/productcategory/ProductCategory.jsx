@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { useParams } from 'react-router-dom'
 import Breadcrum from '../../component/breadcrum/Breadcrum';
 import ProductCategoryLeft from './productCategoryLeft/ProductCategoryLeft';
@@ -6,7 +6,11 @@ import ProductCategoryRight from './productCategoryRight/ProductCategoryRight';
 
 const ProductCategory = () => {
     const {name} = useParams();
-    
+    const [categoryid , setCategoryid] = useState('')
+
+    const handlecategory = (id) =>{
+         setCategoryid(id);     
+    }
     
   return (
     <div>
@@ -18,10 +22,10 @@ const ProductCategory = () => {
         <div className='custom-container mx-auto'>
             <div className='flex items-start'>
                <div className='w-[25%]'>
-                 <ProductCategoryLeft/>
+                 <ProductCategoryLeft handlecategory={handlecategory}/>
                </div>
                <div className='w-[75%]'> 
-                  <ProductCategoryRight/>
+                  <ProductCategoryRight categoryid={categoryid}/>
                </div>
             </div>
         </div>
