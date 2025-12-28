@@ -26,7 +26,7 @@ const ProductCategoryLeft = ({handlecategory = () =>{}}) => {
 
       <div className={`flex flex-col gap-y-2 mt-4 transition-all duration-300 ${cursorshow ? "block translate-y-0" : "hidden -translate-y-full"}`}>
         {category.slice(0,4).map((item , index)=>(
-          <div key={index} onClick={()=>handlecategory(item.id)}>
+          <div key={index} onClick={()=>handlecategory(item.item)}>
              <li className='list-none text-[16px] cursor-pointer'>{item.item}</li>
           </div>
         ))}
@@ -34,7 +34,7 @@ const ProductCategoryLeft = ({handlecategory = () =>{}}) => {
         {/* Show more items */}
           <div className={`overflow-hidden transition-all flex flex-col gap-y-2 duration-500 ${moreshow ? 'max-h-[200px] opacity-100' : 'max-h-0 opacity-0'}`}>
             {category.slice(4).map((item, index) => (
-              <li key={index} onClick={()=>handlecategory(item.id)} className='list-none text-[16px] cursor-pointer'>
+              <li key={index} onClick={()=>handlecategory(item.item)} className='list-none text-[16px] cursor-pointer'>
                 {item.item}
               </li>
             ))}

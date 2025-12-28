@@ -6,10 +6,10 @@ import ProductCategoryRight from './productCategoryRight/ProductCategoryRight';
 
 const ProductCategory = () => {
     const {name} = useParams();
-    const [categoryid , setCategoryid] = useState('')
+    const [categoryItem , setCategoryItem] = useState('')
 
-    const handlecategory = (id) =>{
-         setCategoryid(id);     
+    const handlecategory = (categoryitem) =>{
+         setCategoryItem(categoryitem);     
     }
     
   return (
@@ -20,12 +20,12 @@ const ProductCategory = () => {
       </div>
       <div className='my-15'>
         <div className='custom-container mx-auto'>
-            <div className='flex items-start'>
-               <div className='w-[25%]'>
-                 <ProductCategoryLeft handlecategory={handlecategory}/>
+            <div className='flex items-start '>
+               <div className='hidden md:block md:w-[25%]'>
+                  <ProductCategoryLeft handlecategory={handlecategory}/>
                </div>
-               <div className='w-[75%]'> 
-                  <ProductCategoryRight categoryid={categoryid}/>
+               <div className='md:w-[75%]'> 
+                  <ProductCategoryRight categoryItem={categoryItem}/>
                </div>
             </div>
         </div>

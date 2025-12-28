@@ -33,7 +33,7 @@ const category = [
     },
         {
         id:6,
-        item: "Neclace",
+        item: "nacklace",
         image: Neclace
     },
     

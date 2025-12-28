@@ -15,6 +15,7 @@ import ProductCategory from './pages/productcategory/ProductCategory';
 import Wishlist from './pages/wishlist/Wishlist';
 import Addtocart from './pages/addtocart/Addtocart';
 import Invoice from './pages/invoice/Invoice';
+import LiveRate from './pages/LiveRate/LiveRate';
 
 
 const router = createBrowserRouter(
@@ -28,6 +29,7 @@ const router = createBrowserRouter(
           <Route path='/product-category/:name' element={<ProductCategory/>}/>
           <Route path='/wishlist' element={<Wishlist/>}/>
           <Route path='/addtocart' element={<Addtocart/>}/>
+          <Route path='/liverate' element={<LiveRate/>}/>
       </Route>
           <Route path='/invoice' element={<Invoice/>}/>
     </Route>

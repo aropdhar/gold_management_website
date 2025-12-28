@@ -9,16 +9,13 @@ import { IoMoonOutline, IoSunnyOutline } from 'react-icons/io5';
 import { CiHeart } from 'react-icons/ci';
 
 const NavbarResponsive = ({navbarshow , setNavbarShow , theme , setTheme , wishlistItem}) => {
-
-    console.log(wishlistItem.length);
-    
     
     const [Show , setShow] = useState("Menu");
     const tabs = ['Menu' , 'Categories']
 
 
   return (
-    <div className={`bg-white dark:bg-[#1c1b22]  z-2000 fixed w-[300px] h-full left-0 top-0 transition-transform duration-300 ${navbarshow ? "translate-x-0" : "-translate-x-full" }`} >
+    <div className={`bg-white dark:bg-[#1c1b22]  z-5000 fixed w-[300px] h-full left-0 top-0 transition-transform duration-300 ${navbarshow ? "translate-x-0" : "-translate-x-full" }`} >
        <div className='bg-[#f5f5f5] dark:bg-[#1c1b22] px-5 py-3'>
      {/* dark mode section */}
          <div className='flex items-end justify-end'>
