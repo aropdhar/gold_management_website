@@ -12,9 +12,6 @@ const VoriRate = () => {
         goldprice: 0,
     })
     
-    console.log();
-    
-    
 
     const initialValue = {
         vori: 0,
