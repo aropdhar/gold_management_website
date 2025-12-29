@@ -61,7 +61,7 @@ const ProductCategoryRight = ({categoryItem}) => {
 
       {/* product category product section */}
 
-      <div  className={`grid gap-6 ${grid === 1 ? 'grid-cols-1' : grid === 2 ? 'grid-cols-2': 'grid-cols-3'}`}>
+      <div  className={`md:grid gap-6 ml-6 md:ml-0 flex flex-col items-center justify-center ${grid === 1 ? 'grid-cols-1' : grid === 2 ? 'md:grid-cols-2': 'md:grid-cols-3'}`}>
         
          {categoryItem ? 
             filteredProducts.slice(startIndex, endindex).map((item)=>(
