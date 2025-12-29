@@ -47,7 +47,7 @@ const NavbarResponsive = ({navbarshow , setNavbarShow , theme , setTheme , wishl
                 <div>
                     <ul className='p-5 flex flex-col gap-y-5 text-[16px] font-Poppins font-normal'>
                         <li className='cursor-pointer'><Link to={'/'}>Home</Link></li>
-                        <li className='cursor-pointer'>Live Rate</li>
+                        <li className='cursor-pointer'><Link to={'/liverate'}>Live Rate</Link></li>
                         <li className='cursor-pointer'>About</li>
                         <li className='cursor-pointer'><Link to={'/contact'}>Contact</Link></li>
                         <li className='cursor-pointer'>Terms & Condition</li>

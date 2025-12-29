@@ -48,7 +48,7 @@ const Navbar = ({scrolled}) => {
                         )}
                     </ul>
                 </li>
-                <li className='linelist'><Link to={'/liverate'}>Live Rate</Link></li>
+                <li className='linelist'><NavLink to={'/liverate'}>Live Rate</NavLink></li>
                 <li className='linelist'>About</li>
                 <li className='linelist'><NavLink to={'/contact'}>Contact</NavLink></li>
             </ul>
