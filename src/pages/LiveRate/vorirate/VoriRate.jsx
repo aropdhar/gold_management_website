@@ -67,7 +67,8 @@ const VoriRate = () => {
   return (
     <div>
       <div className='custom-container mx-auto'>
-          <div className="mt-12 py-12 px-5 rounded-2xl  flex flex-col md:flex-row items-center gap-y-8 md:items-start md:gap-x-8 bg-[#f5f5f5] dark:bg-[#1c1b22] ">
+        <div className='flex items-center justify-center'>
+          <div className="mt-12 py-12 px-5 rounded-2xl flex flex-col md:w-[580px] items-center gap-y-8 md:items-start md:gap-x-8 bg-[#f5f5f5] dark:bg-[#1c1b22]">
             <form onSubmit={formik.handleSubmit}>
                 <div className="flex flex-col gap-y-8">
                     <div className="flex flex-col gap-y-4 items-center justify-center md:flex-row md:items-start md:gap-x-10 ">
@@ -107,8 +108,8 @@ const VoriRate = () => {
                 </div>
             </form>
 
-             <div className="">
-               <span className="text-[20px] ml-10 font-Inter">{result.vori} ভরি, {result.ana} আনা, {result.roti} রতি, {result.point} পয়েন্ট</span>
+             <div>
+               <span className="md:text-[20px] text-[16px]  font-Inter">{result.vori} ভরি, {result.ana} আনা, {result.roti} রতি, {result.point} পয়েন্ট</span>
               <div className='mt-10 flex flex-col gap-y-4'>
                 <span className='font-Roboto'>মোট টাকা পরিমান: {totalresult.totalgoldprice}</span>
                 <span className='font-Roboto'>প্রতি ভরির দাম: {result.goldprice}</span>
@@ -117,6 +118,7 @@ const VoriRate = () => {
               </div>
              </div>
            </div>
+        </div>
       </div>
     </div>
   )
