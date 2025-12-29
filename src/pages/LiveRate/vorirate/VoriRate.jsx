@@ -67,7 +67,7 @@ const VoriRate = () => {
   return (
     <div>
       <div className='custom-container mx-auto'>
-          <div className="mt-12 py-12 px-5 rounded-2xl md:w-[1000px] flex flex-col md:flex-row items-center gap-y-8 md:items-start md:gap-x-8 bg-[#f5f5f5] dark:bg-[#1c1b22] md:ml-40">
+          <div className="mt-12 py-12 px-5 rounded-2xl  flex flex-col md:flex-row items-center gap-y-8 md:items-start md:gap-x-8 bg-[#f5f5f5] dark:bg-[#1c1b22] ">
             <form onSubmit={formik.handleSubmit}>
                 <div className="flex flex-col gap-y-8">
                     <div className="flex flex-col gap-y-4 items-center justify-center md:flex-row md:items-start md:gap-x-10 ">
