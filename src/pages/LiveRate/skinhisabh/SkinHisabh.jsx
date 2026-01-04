@@ -48,7 +48,7 @@ const SkinHisabh = () => {
                     <div className='mt-4 flex flex-col gap-y-12'>
                       <form onSubmit={formik.handleSubmit}>
                         <div className='flex flex-col gap-y-6'>
-                            <div className='flex items-start gap-x-6'>
+                            <div className='flex flex-col md:flex-row items-start gap-x-6'>
                               <div className='flex flex-col gap-y-4'>
                                 <label htmlFor="skinrated">আজকের  স্কিন রেট</label>
                                 <input id="skinrate" name="skinrate" type="number" onChange={formik.handleChange}value={formik.values.skinrate} className='w-[250px] border-2 border-black px-3 py-2 outline-0'/>

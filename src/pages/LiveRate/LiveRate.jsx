@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import VoriRate from "./vorirate/VoriRate";
 import GmRate from "./gmrate/GmRate";
 import SkinHisabh from "./skinhisabh/SkinHisabh";
+import BondokiHisabh from "./bondoki/BondokiHisabh";
 
 
 
@@ -33,6 +34,9 @@ const LiveRate = () => {
  
           { goldtab == "স্কিন হিসাব" &&
             <SkinHisabh/>
+          }
+          { goldtab == "বন্ধকী হিসাব" &&
+            <BondokiHisabh/>
           }
            
     </div>

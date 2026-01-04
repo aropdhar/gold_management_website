@@ -33,22 +33,22 @@ const SkingmHisabh = () => {
     <div>
       <div className='mt-4 flex flex-col gap-y-12'>
             <form onSubmit={formik.handleSubmit}>
-            <div className='flex flex-col gap-y-6'>
-                <div className='flex items-start gap-x-6'>
-                    <div className='flex flex-col gap-y-4'>
-                    <label htmlFor="skinrated">আজকের প্রতি গ্রামের স্কিন রেট</label>
-                    <input id="skingmrate" name="skingmrate" type="number" onChange={formik.handleChange}value={formik.values.skingmrate} className='w-[250px] border-2 border-black px-3 py-2 outline-0'/>
-                    </div>
-                    <div className='flex flex-col gap-y-4'>
-                    <label htmlFor="gmdollarrated">আজকের ডলার রেট</label>
-                    <input id="gmdollarrate" name="gmdollarrate" type="number" onChange={formik.handleChange} value={formik.values.gmdollarrate} className='w-[250px] border-2 border-black px-3 py-2 outline-0'/>
-                    </div>
-                </div>
-                <div className='flex items-start gap-x-4'>
-                    <button type="submit" className='bg-black px-5 py-2.5 text-white rounded-2xl cursor-pointer'>পরিমাপ</button>
-                    <button onClick={handleresetgm} type='button' className='bg-black px-5 py-2.5 text-white rounded-2xl cursor-pointer'>রিসেট</button>
-                </div>
-            </div>
+              <div className='flex flex-col gap-y-6'>
+                  <div className='flex flex-col md:flex-row items-start gap-x-6'>
+                      <div className='flex flex-col gap-y-4'>
+                      <label htmlFor="skinrated">আজকের প্রতি গ্রামের স্কিন রেট</label>
+                      <input id="skingmrate" name="skingmrate" type="number" onChange={formik.handleChange}value={formik.values.skingmrate} className='w-[250px] border-2 border-black px-3 py-2 outline-0'/>
+                      </div>
+                      <div className='flex flex-col gap-y-4'>
+                      <label htmlFor="gmdollarrated">আজকের ডলার রেট</label>
+                      <input id="gmdollarrate" name="gmdollarrate" type="number" onChange={formik.handleChange} value={formik.values.gmdollarrate} className='w-[250px] border-2 border-black px-3 py-2 outline-0'/>
+                      </div>
+                  </div>
+                  <div className='flex items-start gap-x-4'>
+                      <button type="submit" className='bg-black px-5 py-2.5 text-white rounded-2xl cursor-pointer'>পরিমাপ</button>
+                      <button onClick={handleresetgm} type='button' className='bg-black px-5 py-2.5 text-white rounded-2xl cursor-pointer'>রিসেট</button>
+                  </div>
+              </div>
             </form>
             <div className='flex flex-col gap-y-6'>
                 <span>প্রতি গ্রামের স্কিন রেট হিসাবে প্রতি ভরি মূল্য {`${result.totalgmprice}`} এর সাথে ভ্যাট বা আরো কিছু যোগ হতে পারে। </span>
