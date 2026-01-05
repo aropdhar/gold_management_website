@@ -20,7 +20,7 @@ const NavbarResponsive = ({navbarshow , setNavbarShow , theme , setTheme , wishl
      {/* dark mode section */}
          <div className='flex items-end justify-end'>
             <div className='flex items-center gap-x-5'>
-               <Link to={'/wishlist'} className='relative cursor-pointer'>
+               <Link onClick={()=>setNavbarShow(false)} to={'/wishlist'} className='relative cursor-pointer'>
                  <span className='absolute -top-1 -right-1.5 bg-yellow-500 w-5 h-5 flex items-center justify-center rounded-[50%]'>{`${wishlistItem.length}`}</span>
                  <span className='text-[30px]'><CiHeart /></span>
                </Link>
@@ -46,11 +46,11 @@ const NavbarResponsive = ({navbarshow , setNavbarShow , theme , setTheme , wishl
              
                 <div>
                     <ul className='p-5 flex flex-col gap-y-5 text-[16px] font-Poppins font-normal'>
-                        <li className='cursor-pointer'><Link to={'/'}>Home</Link></li>
-                        <li className='cursor-pointer'><Link to={'/liverate'}>Live Rate</Link></li>
-                        <li className='cursor-pointer'>About</li>
-                        <li className='cursor-pointer'><Link to={'/contact'}>Contact</Link></li>
-                        <li className='cursor-pointer'>Terms & Condition</li>
+                        <li className='cursor-pointer'onClick={()=>setNavbarShow(false)} ><Link to={'/'}>Home</Link></li>
+                        <li className='cursor-pointer' onClick={()=>setNavbarShow(false)}><Link to={'/liverate'}>Live Rate</Link></li>
+                        <li className='cursor-pointer' onClick={()=>setNavbarShow(false)}>About</li>
+                        <li className='cursor-pointer' onClick={()=>setNavbarShow(false)}><Link to={'/contact'}>Contact</Link></li>
+                        <li className='cursor-pointer' onClick={()=>setNavbarShow(false)}>Terms & Condition</li>
                     </ul>
                     <div className='p-5 flex items-center gap-x-5 text-[20px]'>
                        <span className='cursor-pointer'><FaFacebookF /></span>
@@ -64,7 +64,7 @@ const NavbarResponsive = ({navbarshow , setNavbarShow , theme , setTheme , wishl
              {Show == 'Categories' &&
                 <div className='p-5 flex flex-col gap-y-5 text-[16px] font-Poppins font-normal'>
                     {category.map((item)=>(
-                      <li key={item.id} className='cursor-pointer list-none'><Link to={`/product-category/${item.item}`}>{item.item}</Link></li>
+                      <li onClick={()=>setNavbarShow(false)} key={item.id} className='cursor-pointer list-none'><Link to={`/product-category/${item.item}`}>{item.item}</Link></li>
                     ))}
                 </div>
             }

@@ -6,7 +6,6 @@ import product from '../../../component/productcomponent/productApi/ProductApi'
 
 const ProductCategoryRight = ({categoryItem}) => {
    
-  
    const filteredProducts = categoryItem
   ? product.filter(item => item.title.toLowerCase() === categoryItem.toLowerCase())
   : product;

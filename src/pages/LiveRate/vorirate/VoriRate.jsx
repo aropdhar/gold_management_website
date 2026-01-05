@@ -102,8 +102,8 @@ const VoriRate = () => {
                     </div>
                     </div>
                     <div className="flex items-center gap-x-4">
-                    <button type="submit" className="bg-black text-white px-5 py-2.5 text-[16px] rounded-2xl cursor-pointer">পরিমাপ</button>
-                    <button onClick={handlereset} type="button" className="bg-black text-white px-5 py-2.5 text-[16px] rounded-2xl cursor-pointer">রিসেট</button>
+                    <button type="submit" className="bg-black dark:bg-white dark:text-black text-white px-5 py-2.5 text-[16px] rounded-2xl cursor-pointer">পরিমাপ</button>
+                    <button onClick={handlereset} type="button" className="bg-black text-white dark:bg-white dark:text-black px-5 py-2.5 text-[16px] rounded-2xl cursor-pointer">রিসেট</button>
                     </div>
                 </div>
             </form>

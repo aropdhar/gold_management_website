@@ -35,11 +35,11 @@ const SkinHisabh = () => {
     <div className='mt-10'>
       <div className='custom-container mx-auto'>
          <div className='flex items-center justify-center'>
-            <div className='bg-[#f5f5f5] w-[560px] px-4 py-3 rounded-[10px]'> 
+            <div className='bg-[#f5f5f5] dark:bg-[#1c1b22] w-[560px] px-4 py-3 rounded-[10px]'> 
                  <div className='flex items-center gap-x-4'>
                     {skinbutton.map((item , index)=>(
                       <div onClick={()=>setSkinBtn(item)} key={index} className='flex items-center gap-x-2 cursor-pointer'>
-                        <span className={`border-2 border-black rounded-[50%] cursor-pointer ${skinbtn == item ? 'bg-[#38BDF8] p-2' : 'bg-transparent p-2'}`}></span>
+                        <span className={`border-2 border-black dark:border-white rounded-[50%] cursor-pointer ${skinbtn == item ? 'bg-[#38BDF8] p-2' : 'bg-transparent p-2'}`}></span>
                         <span>{item}</span>
                       </div>
                     ))}
@@ -51,16 +51,16 @@ const SkinHisabh = () => {
                             <div className='flex flex-col md:flex-row items-start gap-x-6'>
                               <div className='flex flex-col gap-y-4'>
                                 <label htmlFor="skinrated">আজকের  স্কিন রেট</label>
-                                <input id="skinrate" name="skinrate" type="number" onChange={formik.handleChange}value={formik.values.skinrate} className='w-[250px] border-2 border-black px-3 py-2 outline-0'/>
+                                <input id="skinrate" name="skinrate" type="number" onChange={formik.handleChange}value={formik.values.skinrate} className='w-[250px] border-2 border-black dark:border-white px-3 py-2 outline-0'/>
                               </div>
                               <div className='flex flex-col gap-y-4'>
                                 <label htmlFor="dollarrated">আজকের ডলার রেট</label>
-                                <input id="dollarrate" name="dollarrate" type="number" onChange={formik.handleChange} value={formik.values.dollarrate} className='w-[250px] border-2 border-black px-3 py-2 outline-0'/>
+                                <input id="dollarrate" name="dollarrate" type="number" onChange={formik.handleChange} value={formik.values.dollarrate} className='w-[250px] border-2 border-black dark:border-white px-3 py-2 outline-0'/>
                               </div>
                             </div>
                             <div className='flex items-start gap-x-4'>
-                              <button type="submit" className='bg-black px-5 py-2.5 text-white rounded-2xl cursor-pointer'>পরিমাপ</button>
-                              <button onClick={handlereset} type='button' className='bg-black px-5 py-2.5 text-white rounded-2xl cursor-pointer'>রিসেট</button>
+                              <button type="submit" className='bg-black dark:bg-white dark:text-black px-5 py-2.5 text-white rounded-2xl cursor-pointer'>পরিমাপ</button>
+                              <button onClick={handlereset} type='button' className='bg-black dark:bg-white dark:text-black px-5 py-2.5 text-white rounded-2xl cursor-pointer'>রিসেট</button>
                             </div>
                         </div>
                       </form>

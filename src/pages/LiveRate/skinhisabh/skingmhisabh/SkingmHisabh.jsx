@@ -37,16 +37,16 @@ const SkingmHisabh = () => {
                   <div className='flex flex-col md:flex-row items-start gap-x-6'>
                       <div className='flex flex-col gap-y-4'>
                       <label htmlFor="skinrated">আজকের প্রতি গ্রামের স্কিন রেট</label>
-                      <input id="skingmrate" name="skingmrate" type="number" onChange={formik.handleChange}value={formik.values.skingmrate} className='w-[250px] border-2 border-black px-3 py-2 outline-0'/>
+                      <input id="skingmrate" name="skingmrate" type="number" onChange={formik.handleChange}value={formik.values.skingmrate} className='w-[250px] border-2 border-black px-3 py-2 outline-0 dark:border-white'/>
                       </div>
                       <div className='flex flex-col gap-y-4'>
                       <label htmlFor="gmdollarrated">আজকের ডলার রেট</label>
-                      <input id="gmdollarrate" name="gmdollarrate" type="number" onChange={formik.handleChange} value={formik.values.gmdollarrate} className='w-[250px] border-2 border-black px-3 py-2 outline-0'/>
+                      <input id="gmdollarrate" name="gmdollarrate" type="number" onChange={formik.handleChange} value={formik.values.gmdollarrate} className='w-[250px] border-2 border-black px-3 py-2 outline-0 dark:border-white'/>
                       </div>
                   </div>
                   <div className='flex items-start gap-x-4'>
-                      <button type="submit" className='bg-black px-5 py-2.5 text-white rounded-2xl cursor-pointer'>পরিমাপ</button>
-                      <button onClick={handleresetgm} type='button' className='bg-black px-5 py-2.5 text-white rounded-2xl cursor-pointer'>রিসেট</button>
+                      <button type="submit" className='bg-black dark:bg-white dark:text-black px-5 py-2.5 text-white rounded-2xl cursor-pointer'>পরিমাপ</button>
+                      <button onClick={handleresetgm} type='button' className='bg-black dark:bg-white dark:text-black px-5 py-2.5 text-white rounded-2xl cursor-pointer'>রিসেট</button>
                   </div>
               </div>
             </form>
